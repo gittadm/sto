@@ -1,0 +1,485 @@
+name: Финансы
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/finance-groups
+    metadata:
+      title: 'Список финансовых групп'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"finance_groups":[{"id":1,"name":"Aliquam"},{"id":8,"name":"Amet"},{"id":6,"name":"Dignissimos"},{"id":3,"name":"Enim"},{"id":7,"name":"Esse"},{"id":5,"name":"Ex"},{"id":2,"name":"Nihil"},{"id":10,"name":"Optio"},{"id":4,"name":"Rerum"},{"id":9,"name":"Temporibus"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/finance-groups/{finance_group}'
+    metadata:
+      title: 'Удаление финансовой группы'
+      description: |-
+        Права: `crud finances`
+
+        Удаление только если нет финансовых операций или других связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      finance_group:
+        name: finance_group
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/finances
+    metadata:
+      title: 'Список финансовых операций'
+      description: |-
+        Получение списка финансовых операций с финансовыми группами с пагинацией.
+        С помощью дополнительных параметров в url можно указать фрагмент для поиска по названию,
+        паиск по типу операции, сумме, периоду для даты создания, поиск по id отдела.
+        Сортировка возможна по дате создания, типу операции (приход, расход), сумме, названию, id отдела
+
+        Права: `crud finances`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order:
+        name: order
+        description: 'Значения: id, name, type, sum, date, department. Если параметр не указан, то по id desc.'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      name:
+        name: name
+        description: 'Поиск по фрагменту названия'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Поиск по типу операции (in, out)'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      sum:
+        name: sum
+        description: 'Поиск по сумме'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      department_id:
+        name: department_id
+        description: 'Поиск по id отдела'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      start_date:
+        name: start_date
+        description: 'Дата создания от (вкл) Пример: 31.01.20222'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      end_date:
+        name: end_date
+        description: 'Дата создания до (вкл) Пример: 31.01.20222'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"finances":[{"id":126,"name":"Inventore","operation_type":"out","sum":782600,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":9,"name":"Temporibus"},"department":null},{"id":125,"name":"Error","operation_type":"out","sum":903000,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":9,"name":"Temporibus"},"department":null},{"id":124,"name":"Sit","operation_type":"out","sum":545800,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":9,"name":"Temporibus"},"department":null},{"id":123,"name":"Sapiente","operation_type":"in","sum":827800,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":9,"name":"Temporibus"},"department":null},{"id":122,"name":"Sequi","operation_type":"out","sum":399700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":121,"name":"Labore","operation_type":"in","sum":380200,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":120,"name":"Deserunt","operation_type":"out","sum":492000,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":119,"name":"Illum","operation_type":"in","sum":429400,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":118,"name":"Ut","operation_type":"out","sum":671100,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":117,"name":"Vel","operation_type":"in","sum":233700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":116,"name":"Illo","operation_type":"out","sum":581600,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":115,"name":"Omnis","operation_type":"out","sum":781700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":114,"name":"Odio","operation_type":"in","sum":917700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":113,"name":"Incidunt","operation_type":"out","sum":789700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":112,"name":"Ratione","operation_type":"out","sum":578700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":111,"name":"Unde","operation_type":"out","sum":659200,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":110,"name":"Hic","operation_type":"out","sum":365000,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":109,"name":"In","operation_type":"in","sum":754300,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":108,"name":"Quod","operation_type":"in","sum":585300,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":4,"name":"Rerum"},"department":null},{"id":107,"name":"Accusantium","operation_type":"out","sum":183700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":106,"name":"Id","operation_type":"in","sum":606800,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":105,"name":"Eligendi","operation_type":"in","sum":520800,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":104,"name":"Quibusdam","operation_type":"out","sum":393300,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":103,"name":"Nostrum","operation_type":"in","sum":724500,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":102,"name":"Cupiditate","operation_type":"in","sum":496700,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":101,"name":"Explicabo","operation_type":"in","sum":229800,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":100,"name":"Quaerat","operation_type":"out","sum":924500,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":99,"name":"Dolorum","operation_type":"in","sum":139500,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":98,"name":"Corporis","operation_type":"in","sum":569900,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null},{"id":97,"name":"Ab","operation_type":"out","sum":581600,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":10,"name":"Optio"},"department":null}],"links":{"first":"http:\/\/127.0.0.1:8000\/api\/finances?page=1","last":"http:\/\/127.0.0.1:8000\/api\/finances?page=5","prev":null,"next":"http:\/\/127.0.0.1:8000\/api\/finances?page=2"},"meta":{"current_page":1,"from":1,"last_page":5,"links":[{"url":null,"label":"&laquo; \u041d\u0430\u0437\u0430\u0434","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/finances?page=1","label":"1","active":true},{"url":"http:\/\/127.0.0.1:8000\/api\/finances?page=2","label":"2","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/finances?page=3","label":"3","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/finances?page=4","label":"4","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/finances?page=5","label":"5","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/finances?page=2","label":"\u0412\u043f\u0435\u0440\u0451\u0434 &raquo;","active":false}],"path":"http:\/\/127.0.0.1:8000\/api\/finances","per_page":30,"to":30,"total":126}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/finances
+    metadata:
+      title: 'Добавление финансовой операции'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      operation_type:
+        name: operation_type
+        description: 'Must be one of <code>out</code> or <code>in</code>.'
+        required: true
+        example: in
+        type: string
+        custom: []
+      sum:
+        name: sum
+        description: 'Значение поля value должно быть не меньше 0.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      finance_group_id:
+        name: finance_group_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      department_id:
+        name: department_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"finance_group_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f finance group id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."],"department_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f department id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/finances/{id}'
+    metadata:
+      title: 'Получение финансовой операции'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the finance.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      finance:
+        name: finance
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"finance":{"id":17,"name":"Necessitatibus","operation_type":"in","sum":816000,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","finance_group":{"id":8,"name":"Amet"},"department":null}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/finances/{id}'
+    metadata:
+      title: 'Обновление финансовой операции'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the finance.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      finance:
+        name: finance
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      operation_type:
+        name: operation_type
+        description: 'Must be one of <code>out</code> or <code>in</code>.'
+        required: true
+        example: in
+        type: string
+        custom: []
+      sum:
+        name: sum
+        description: 'Значение поля value должно быть не меньше 0.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      finance_group_id:
+        name: finance_group_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      department_id:
+        name: department_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"finance_group_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f finance group id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."],"department_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f department id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/finances/{id}'
+    metadata:
+      title: 'Удаление финансовой операции'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the finance.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      finance:
+        name: finance
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/finance-groups
+    metadata:
+      title: 'Добавление финансовой группы'
+      description: |-
+        Название должно быть уникально
+
+        Права: `crud finances`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "finance_group": {
+                  "id": 1,
+                  "name": "In"
+              }
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/finance-groups/{finance_group}'
+    metadata:
+      title: 'Получение финансовой группы'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      finance_group:
+        name: finance_group
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "finance_group": {
+                  "id": 1,
+                  "name": "In"
+              }
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/finance-groups/{finance_group}'
+    metadata:
+      title: 'Обновление финансовой группы'
+      description: 'Права: `crud finances`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      finance_group:
+        name: finance_group
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+              "success": true,
+              "finance_group": {
+                  "id": 1,
+                  "name": "In"
+              }
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []

@@ -1,0 +1,96 @@
+name: Комментарии
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/comments/{model}/{id}'
+    metadata:
+      title: 'Список комментариев'
+      description: 'Права: доступ к чтению сущности комментариев'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      model:
+        name: model
+        description: 'Название сущности, к которой комментарии. Например, task'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'ID сущности, к которой комментарии'
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/comments/{model}/{id}'
+    metadata:
+      title: 'Добавление комментария'
+      description: 'Права: доступ к чтению сущности комментария'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      model:
+        name: model
+        description: 'Название сущности, к которой комментарии. Например, task'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'ID сущности, к которой комментарии'
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

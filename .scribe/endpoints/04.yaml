@@ -1,0 +1,374 @@
+name: Клиенты
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/clients
+    metadata:
+      title: 'Список клиентов'
+      description: |-
+        Получение списка клиентов с отделом и городом с пагинацией.
+        С помощью дополнительных параметров в url можно указать отдел, город,
+        поле для сортировки и фрагмент для поиска по ФИО, паспорту, email, телефону, номеру автомобиля.
+
+        Права: `read clients`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order:
+        name: order
+        description: 'Значения: id, surname. Если параметр не указан, то по id desc.'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      department_id:
+        name: department_id
+        description: 'Получение клиентов только с указанного отдела'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      city_id:
+        name: city_id
+        description: 'Получение клиентов только с указанного города'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      name:
+        name: name
+        description: 'Фрагмент для поиска по ФИО'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      search:
+        name: search
+        description: 'Фрагмент для поиска по ФИО, email, телефону или паспорту'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      number:
+        name: number
+        description: 'Фрагмент для поиска по номеру автомобиля'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"clients":[{"id":10,"name":"\u0420\u0430\u0434\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430","middle_name":"\u0421\u043e\u0444\u0438\u044f\u043e\u0432\u0438\u0447","born_at":"19.08.1999","notes":"Possimus maiores velit voluptas corporis rerum rem animi.","address":"Aut aut eum eum minima quo earum.","passport":"Dolore porro itaque consequuntur magni quisquam.","phones":["(812) 720-88-50"],"gender":"male","emails":["hegorov@gmail.com","irina.efremov@safonova.ru","grisin.nikita@morozova.net"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"city":{"id":22,"name":"\u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b 6262"}},{"id":9,"name":"\u0422\u0430\u043c\u0430\u0440\u0430","surname":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"21.06.2001","notes":"Accusamus minima dolor dolores aliquid.","address":"Minus iste dolorum cupiditate.","passport":"Error sed a quasi qui.","phones":["+7 (922) 361-2223","(495) 897-1178"],"gender":"male","emails":["gdrozdov@narod.ru","aleksandr.maksimov@kononov.ru","ibragina@karpov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"city":{"id":88,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 4489"}},{"id":8,"name":"\u0413\u043b\u0435\u0431","surname":"\u041c\u0435\u043b\u044c\u043d\u0438\u043a\u043e\u0432\u0430","middle_name":"\u0410\u043d\u0444\u0438\u0441\u0430\u043e\u0432\u0438\u0447","born_at":"02.07.1991","notes":"Ea unde molestiae neque velit blanditiis officia.","address":"Quis et est tempore iure quas assumenda.","passport":"Culpa nobis sequi quidem asperiores reiciendis ut.","phones":["(35222) 13-0504","(35222) 28-4532","8-800-904-5531"],"gender":"male","emails":["olesa94@mail.ru","pprohorov@bk.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"city":{"id":87,"name":"\u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b 1768"}},{"id":7,"name":"\u041b\u0435\u0432","surname":"\u041a\u043e\u043d\u043e\u043d\u043e\u0432\u0430","middle_name":"\u0410\u0444\u0430\u043d\u0430\u0441\u0438\u0439\u043e\u0432\u0438\u0447","born_at":"31.01.1988","notes":"Dicta quas facere placeat.","address":"Totam ut officiis ducimus consequatur et impedit debitis.","passport":"Sed et iste et et laudantium maiores ipsum.","phones":["+7 (922) 751-1465","(812) 033-96-83","(35222) 54-1522"],"gender":"male","emails":["gulaev.igor@bk.ru","valerian45@ya.ru","vasilij48@sorokin.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"city":{"id":26,"name":"\u041e\u0440\u0435\u0445\u043e\u0432\u043e-\u0417\u0443\u0435\u0432\u043e 9000"}},{"id":6,"name":"\u0422\u0438\u043c\u0443\u0440","surname":"\u0427\u0435\u0440\u043d\u043e\u0432\u0430","middle_name":"\u041e\u043b\u0435\u0441\u044f\u043e\u0432\u0438\u0447","born_at":"25.03.1982","notes":"Voluptas impedit rem autem est.","address":"Quaerat ut id nisi et reprehenderit quo ut illum.","passport":"Et et velit corporis iste voluptas non tempora.","phones":["(812) 446-63-56"],"gender":"male","emails":["akusev.elena@mail.ru","regina85@ya.ru","valerij.ersov@danilov.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"city":{"id":41,"name":"\u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a 114"}},{"id":5,"name":"\u041f\u0451\u0442\u0440","surname":"\u0413\u043e\u0440\u0434\u0435\u0435\u0432","middle_name":"\u041d\u0438\u043a\u0430\u043e\u0432\u0438\u0447","born_at":"27.08.1992","notes":"Fuga aliquam ea rerum delectus est quam.","address":"Occaecati a est magni placeat sequi atque.","passport":"Tempora quas quae ea natus illum perferendis aut.","phones":["+7 (922) 938-7223","(35222) 22-2655","(495) 705-0740"],"gender":"male","emails":[],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"city":{"id":81,"name":"\u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434 3513"}},{"id":4,"name":"\u0412\u0430\u043b\u0435\u0440\u0438\u044f","surname":"\u0414\u0440\u043e\u0437\u0434\u043e\u0432","middle_name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430\u043e\u0432\u0438\u0447","born_at":"19.02.2003","notes":"Aperiam sed et exercitationem itaque blanditiis iure ipsam sed.","address":"Consectetur omnis tempore et eveniet sint nam.","passport":"Quae ipsa odit quaerat in at laborum.","phones":["(812) 321-08-68","8-800-338-2859","(35222) 47-1976"],"gender":"male","emails":["vasileva.veniamin@inbox.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},"city":{"id":79,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 3965"}},{"id":3,"name":"\u041d\u0435\u0441\u0442\u043e\u0440","surname":"\u0412\u043e\u0440\u043e\u043d\u043e\u0432\u0430","middle_name":"\u0418\u043d\u043d\u0430\u043e\u0432\u0438\u0447","born_at":"02.04.1971","notes":"Quam sed blanditiis quis rerum.","address":"Fuga et sunt totam quis dolor blanditiis et.","passport":"Voluptas est sunt odio voluptate vero corporis.","phones":["(495) 261-9467","(495) 546-7515"],"gender":"female","emails":["vaceslav37@siraev.com","boleslav88@inbox.ru","zinoveva.ksenia@hotmail.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"city":{"id":49,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a 4304"}},{"id":2,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0422\u0435\u0440\u0435\u043d\u0442\u044c\u0435\u0432\u0430","middle_name":"\u0415\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"25.12.1947","notes":"Ratione occaecati eum earum labore excepturi beatae molestiae nemo.","address":"Molestiae temporibus quidem et velit dolor ut voluptas dolor.","passport":"Sed officia atque occaecati voluptates atque id eos.","phones":["8-800-654-9152"],"gender":"male","emails":["rkomissarova@kabanova.ru","gurev.ulian@gmail.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"city":{"id":100,"name":"\u041b\u0443\u0445\u043e\u0432\u0438\u0446\u044b 2222"}},{"id":1,"name":"\u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d","surname":"\u041d\u0438\u043a\u043e\u043d\u043e\u0432","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"05.06.1997","notes":"Et autem fugiat fugiat aut veniam aspernatur.","address":"Qui id perferendis optio similique atque sunt.","passport":"Optio exercitationem qui qui sint.","phones":["(35222) 15-4209","(35222) 26-1942"],"gender":"male","emails":["ulian00@list.ru","elena.kalasnikov@krasilnikov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"city":{"id":56,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 3008"}}],"links":{"first":"http:\/\/127.0.0.1:8000\/api\/clients?page=1","last":"http:\/\/127.0.0.1:8000\/api\/clients?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; \u041d\u0430\u0437\u0430\u0434","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/clients?page=1","label":"1","active":true},{"url":null,"label":"\u0412\u043f\u0435\u0440\u0451\u0434 &raquo;","active":false}],"path":"http:\/\/127.0.0.1:8000\/api\/clients","per_page":30,"to":10,"total":10}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/clients
+    metadata:
+      title: 'Добавление клиента'
+      description: 'Права: `crud clients`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      surname:
+        name: surname
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      gender:
+        name: gender
+        description: 'Must be one of <code>female</code> or <code>male</code>.'
+        required: false
+        example: male
+        type: string
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      passport:
+        name: passport
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      notes:
+        name: notes
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      born_at:
+        name: born_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      phones:
+        name: phones
+        description: ''
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+      emails:
+        name: emails
+        description: ''
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+      city_id:
+        name: city_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      department_id:
+        name: department_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"department_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f department id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/clients/{id}'
+    metadata:
+      title: 'Получение клиента'
+      description: 'Права: `read clients`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"client":{"id":1,"name":"\u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d","surname":"\u041d\u0438\u043a\u043e\u043d\u043e\u0432","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"05.06.1997","notes":"Et autem fugiat fugiat aut veniam aspernatur.","address":"Qui id perferendis optio similique atque sunt.","passport":"Optio exercitationem qui qui sint.","phones":["(35222) 15-4209","(35222) 26-1942"],"gender":"male","emails":["ulian00@list.ru","elena.kalasnikov@krasilnikov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"city":{"id":56,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 3008"},"cars":[{"id":12,"number":"Q955WF44BG","vin":"ABT81498754830312","year":1988,"body":null,"color":"\u0413\u043e\u0440\u044c\u043a\u0430\u044f \u0440\u0430\u0434\u043e\u0441\u0442\u044c","notes":"Aliquid itaque neque voluptatem iure quidem dicta possimus in.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":14,"value":2.2},"car_model":{"id":14,"name":"Explicabo 679","car_mark":{"id":3,"name":"Alfa Romeo"}}}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/clients/{id}'
+    metadata:
+      title: 'Обновление клиента'
+      description: 'Права: `crud clients`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      surname:
+        name: surname
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      gender:
+        name: gender
+        description: 'Must be one of <code>female</code> or <code>male</code>.'
+        required: false
+        example: male
+        type: string
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      passport:
+        name: passport
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      notes:
+        name: notes
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      born_at:
+        name: born_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      phones:
+        name: phones
+        description: ''
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+      emails:
+        name: emails
+        description: ''
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+      city_id:
+        name: city_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      department_id:
+        name: department_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"department_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f department id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/clients/{id}'
+    metadata:
+      title: 'Удаление клиента'
+      description: 'Права: `crud clients`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the client.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

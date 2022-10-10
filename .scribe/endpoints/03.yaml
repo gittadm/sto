@@ -1,0 +1,671 @@
+name: Задачи
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/tasks
+    metadata:
+      title: 'Список задач'
+      description: |-
+        Получение списка задач с пагинацией.
+        С помощью дополнительных параметров в url можно указать фрагмент для поиска по названию, по статусу,
+        по производителю, по заказу наряда, по воронке, по отделу, период для даты начала, период для даты создания,
+        период для даты завершения.
+        Сортировка возможна по названию, статусу, id исполнителя, дате создания или дате завершения.
+
+        Права: `read tasks` или `read department tasks` или `read own tasks`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order:
+        name: order
+        description: |-
+          Значения: id, name, status, user_id, create_date, start_date, end_date. Если параметр
+          не указан, то по id desc.
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      name:
+        name: name
+        description: 'Поиск по фрагменту названия'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      status:
+        name: status
+        description: 'Поиск по статусу'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      user_id:
+        name: user_id
+        description: 'Поиск по id исполнителя'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      order_id:
+        name: order_id
+        description: 'Поиск по id заказ наряда'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      pipeline_id:
+        name: pipeline_id
+        description: 'Поиск по id воронки'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      department_id:
+        name: department_id
+        description: 'Поиск по id отдела'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"tasks":[{"id":48,"name":"234","description":"111","status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:49","updated_at":"06.02.2022 14:20","checkboxes":[{"id":523,"description":"","is_checked":false,"task_id":48}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":47,"name":"234","description":null,"status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:48","updated_at":"06.02.2022 11:48","checkboxes":[{"id":499,"description":"123","is_checked":false,"task_id":47},{"id":500,"description":"444","is_checked":false,"task_id":47}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":46,"name":"234","description":null,"status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:48","updated_at":"06.02.2022 11:48","checkboxes":[{"id":497,"description":"123","is_checked":false,"task_id":46},{"id":498,"description":"444","is_checked":false,"task_id":46}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":44,"name":"234","description":null,"status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:16","updated_at":"06.02.2022 11:16","checkboxes":[{"id":493,"description":"123","is_checked":false,"task_id":44},{"id":494,"description":"444","is_checked":false,"task_id":44}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":43,"name":"234","description":null,"status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:15","updated_at":"06.02.2022 11:15","checkboxes":[{"id":491,"description":"123","is_checked":false,"task_id":43},{"id":492,"description":"444","is_checked":false,"task_id":43}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":42,"name":"234","description":null,"status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:15","updated_at":"06.02.2022 11:15","checkboxes":[{"id":489,"description":"123","is_checked":false,"task_id":42},{"id":490,"description":"444","is_checked":false,"task_id":42}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":41,"name":"234","description":null,"status":"wait","start_at":"01.12.2022","end_at":"02.12.2022","deadline_at":null,"created_at":"06.02.2022 11:14","updated_at":"06.02.2022 11:14","checkboxes":[{"id":487,"description":"123","is_checked":false,"task_id":41},{"id":488,"description":"444","is_checked":false,"task_id":41}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":null,"author":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5},"user":{"id":2,"name":"\u0418\u0432\u0430\u043d","surname":"\u0421\u0438\u0434\u043e\u0440\u043e\u0432","middle_name":"\u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447","office_position":"accusantium","is_active":true,"avatar":null,"department_id":5}},{"id":40,"name":"Ipsam","description":"Tenetur voluptatibus ut et enim nihil debitis.","status":"pause","start_at":"31.01.2022","end_at":"03.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":270,"description":"Est nobis occaecati dolores quia sapiente aliquam officiis.","is_checked":false,"task_id":40},{"id":271,"description":"Atque esse ut porro fugit.","is_checked":false,"task_id":40},{"id":272,"description":"Voluptatem vel nesciunt magni autem reprehenderit et.","is_checked":false,"task_id":40},{"id":273,"description":"Eos omnis veritatis nihil minima nihil ut sed.","is_checked":false,"task_id":40},{"id":274,"description":"Quibusdam eos asperiores architecto laborum distinctio qui animi.","is_checked":true,"task_id":40},{"id":275,"description":"Corrupti harum beatae deserunt quas.","is_checked":false,"task_id":40},{"id":276,"description":"Non consequatur ab error ab quisquam optio natus.","is_checked":false,"task_id":40},{"id":277,"description":"Et repellat eum iusto velit suscipit autem dolor.","is_checked":false,"task_id":40},{"id":278,"description":"Repudiandae et corrupti ipsum reiciendis earum.","is_checked":true,"task_id":40},{"id":279,"description":"Porro cumque dicta repellat quia est enim beatae.","is_checked":false,"task_id":40},{"id":280,"description":"Aut ducimus rem odio.","is_checked":true,"task_id":40},{"id":281,"description":"Sed provident ducimus nobis id qui atque.","is_checked":false,"task_id":40},{"id":282,"description":"Fugiat voluptas id culpa similique voluptatem architecto.","is_checked":false,"task_id":40},{"id":283,"description":"Eaque possimus cum sunt rem.","is_checked":false,"task_id":40},{"id":284,"description":"Non sapiente aut officiis sequi ducimus incidunt reprehenderit.","is_checked":false,"task_id":40},{"id":285,"description":"Nulla nemo aliquam maxime sit rerum debitis.","is_checked":true,"task_id":40},{"id":286,"description":"Libero sunt dolorem illo debitis quas tempora et.","is_checked":false,"task_id":40},{"id":287,"description":"Facere repellat est quos impedit dicta et.","is_checked":true,"task_id":40}],"department":{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},"order":{"id":1},"author":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}},{"id":39,"name":"Voluptatem","description":"Porro veritatis nobis aut atque aut voluptatem consequatur.","status":"wait","start_at":"30.01.2022","end_at":"09.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":472,"description":"Suscipit est et dolorem voluptas nisi repellendus saepe.","is_checked":true,"task_id":39},{"id":473,"description":"Harum et et alias natus.","is_checked":false,"task_id":39},{"id":474,"description":"Quia repellat voluptatem laboriosam omnis quidem.","is_checked":false,"task_id":39},{"id":475,"description":"Quas sunt veritatis eos alias eius consequuntur doloremque.","is_checked":true,"task_id":39},{"id":476,"description":"Perspiciatis vitae omnis enim suscipit sunt et dolorem.","is_checked":true,"task_id":39},{"id":477,"description":"Quo accusantium minus sit consectetur voluptas dignissimos dolores.","is_checked":false,"task_id":39},{"id":478,"description":"Autem magni cum repudiandae voluptas.","is_checked":true,"task_id":39},{"id":479,"description":"Accusantium est quis delectus fuga quas quam quis.","is_checked":false,"task_id":39},{"id":480,"description":"Reiciendis ad magni modi deleniti repudiandae ea sed eos.","is_checked":true,"task_id":39},{"id":481,"description":"Blanditiis animi recusandae est et.","is_checked":false,"task_id":39},{"id":482,"description":"Porro tempora nostrum ea et impedit.","is_checked":false,"task_id":39},{"id":483,"description":"Hic ducimus ipsam sint molestiae libero ab quod.","is_checked":false,"task_id":39},{"id":484,"description":"Ullam cum hic est dolorem vel.","is_checked":true,"task_id":39},{"id":485,"description":"Qui dolores error quod voluptas nemo corrupti.","is_checked":true,"task_id":39},{"id":486,"description":"At reprehenderit magni id veritatis et odio.","is_checked":true,"task_id":39}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":{"id":2},"author":{"id":35,"name":"\u0415\u0432\u0430","surname":"\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432","middle_name":"\u0410\u043d\u0430\u043d\u0438\u0439\u043e\u0432\u0438\u0447","office_position":"sed","is_active":true,"avatar":null,"department_id":1},"user":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1}},{"id":38,"name":"Aliquid","description":"Minus nostrum neque accusantium natus.","status":"process","start_at":"28.01.2022","end_at":"03.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":453,"description":"Impedit sint asperiores nulla et culpa voluptates quam velit.","is_checked":true,"task_id":38},{"id":454,"description":"Quidem et enim qui ab quidem vitae voluptatem.","is_checked":true,"task_id":38},{"id":455,"description":"Consequatur itaque vitae adipisci qui porro.","is_checked":true,"task_id":38},{"id":456,"description":"Nemo ab dolorem vel atque molestiae pariatur esse harum.","is_checked":false,"task_id":38},{"id":457,"description":"Molestias cum sunt mollitia consectetur et maxime.","is_checked":true,"task_id":38},{"id":458,"description":"Vel dignissimos quia sunt fugiat in.","is_checked":true,"task_id":38},{"id":459,"description":"Eos ex quas quis adipisci in ut.","is_checked":true,"task_id":38},{"id":460,"description":"Fugit ratione quos et cumque eum culpa.","is_checked":false,"task_id":38},{"id":461,"description":"Nam iure suscipit eum debitis maxime alias incidunt.","is_checked":false,"task_id":38},{"id":462,"description":"Quia dolore eos cupiditate ea.","is_checked":false,"task_id":38},{"id":463,"description":"Aperiam corrupti excepturi harum enim et reiciendis.","is_checked":true,"task_id":38},{"id":464,"description":"Rerum consequatur minima modi cupiditate soluta.","is_checked":true,"task_id":38},{"id":465,"description":"Et incidunt dolorem rerum.","is_checked":true,"task_id":38},{"id":466,"description":"Perferendis et aut facilis qui nisi vel.","is_checked":false,"task_id":38},{"id":467,"description":"Molestiae ea in officiis occaecati neque magni.","is_checked":false,"task_id":38},{"id":468,"description":"Excepturi dolor non optio ut omnis aperiam blanditiis.","is_checked":true,"task_id":38},{"id":469,"description":"Qui ducimus at distinctio ipsam hic aut dolorem.","is_checked":true,"task_id":38},{"id":470,"description":"Explicabo voluptatem porro ut qui omnis.","is_checked":true,"task_id":38},{"id":471,"description":"Aut ipsa quia commodi eveniet.","is_checked":true,"task_id":38}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":{"id":1},"author":{"id":11,"name":"\u041a\u043b\u0430\u0432\u0434\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0432\u0446\u0435\u0432","middle_name":null,"office_position":"aliquam","is_active":true,"avatar":null,"department_id":1},"user":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1}},{"id":37,"name":"Molestias","description":"Odio enim nihil amet perferendis omnis qui perspiciatis.","status":"process","start_at":"28.01.2022","end_at":"03.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":24,"description":"Sapiente deserunt aut sit at sapiente perspiciatis reprehenderit placeat.","is_checked":false,"task_id":37},{"id":25,"description":"Ullam deleniti reiciendis mollitia aut dicta.","is_checked":true,"task_id":37},{"id":26,"description":"Sint maxime vel corrupti adipisci eveniet sunt.","is_checked":false,"task_id":37},{"id":27,"description":"Dolores exercitationem quas laudantium qui ut.","is_checked":false,"task_id":37},{"id":28,"description":"Dolores distinctio assumenda nulla accusamus sint molestiae.","is_checked":false,"task_id":37},{"id":29,"description":"Rerum reprehenderit et quae repellendus omnis.","is_checked":false,"task_id":37},{"id":30,"description":"Beatae id adipisci ipsa perferendis.","is_checked":false,"task_id":37},{"id":31,"description":"Iure quo iure cupiditate totam error.","is_checked":false,"task_id":37},{"id":32,"description":"Iusto ipsam quod amet voluptatem sint.","is_checked":false,"task_id":37},{"id":33,"description":"Dignissimos cum qui qui modi enim.","is_checked":false,"task_id":37}],"department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"order":{"id":1},"author":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1},"user":{"id":12,"name":"\u042d\u043c\u0438\u043b\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0448\u043e\u0432\u0430","middle_name":"\u041a\u0430\u043f\u0438\u0442\u043e\u043b\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"iste","is_active":true,"avatar":null,"department_id":1}},{"id":36,"name":"Iure","description":"Perferendis voluptate possimus harum eligendi exercitationem ut repellat.","status":"done","start_at":"27.01.2022","end_at":"03.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":165,"description":"Beatae beatae quis nisi voluptas quae similique.","is_checked":false,"task_id":36},{"id":166,"description":"Ducimus eveniet possimus fuga nulla.","is_checked":false,"task_id":36},{"id":167,"description":"Ad consequuntur corrupti et ipsam aspernatur.","is_checked":true,"task_id":36},{"id":168,"description":"Voluptas alias ut optio in sint.","is_checked":true,"task_id":36},{"id":169,"description":"Eos voluptas illum accusamus voluptatem voluptatibus.","is_checked":true,"task_id":36},{"id":170,"description":"Et excepturi laboriosam delectus rerum quis a officia ipsam.","is_checked":false,"task_id":36},{"id":171,"description":"Nostrum neque laborum voluptatem perferendis quia.","is_checked":true,"task_id":36},{"id":172,"description":"Nihil laudantium eum fuga vero neque velit.","is_checked":false,"task_id":36},{"id":173,"description":"Dolores animi modi ad vero.","is_checked":true,"task_id":36},{"id":174,"description":"Alias iusto rerum et officiis totam omnis.","is_checked":true,"task_id":36},{"id":175,"description":"Quis aut impedit illo adipisci ipsum beatae ad.","is_checked":true,"task_id":36},{"id":176,"description":"Iusto delectus exercitationem est voluptatem laboriosam sapiente ipsum.","is_checked":true,"task_id":36},{"id":177,"description":"Quidem eum veritatis quo illo.","is_checked":true,"task_id":36},{"id":178,"description":"Fugit quidem fugiat dolor ut porro.","is_checked":false,"task_id":36},{"id":179,"description":"Sed soluta eaque aliquid quaerat eum porro fugit dicta.","is_checked":false,"task_id":36},{"id":180,"description":"Nisi qui quas qui maxime.","is_checked":false,"task_id":36},{"id":181,"description":"Consequatur adipisci explicabo deserunt libero harum.","is_checked":false,"task_id":36},{"id":182,"description":"Asperiores provident rem pariatur magni quia est.","is_checked":false,"task_id":36},{"id":183,"description":"Atque eveniet numquam molestiae perspiciatis quidem totam expedita.","is_checked":true,"task_id":36},{"id":184,"description":"Eos quos quo quis aut.","is_checked":false,"task_id":36}],"department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"order":{"id":1},"author":{"id":1,"name":"\u041f\u0435\u0442\u0440","surname":"\u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432","middle_name":"\u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","office_position":"libero","is_active":true,"avatar":null,"department_id":null},"user":{"id":35,"name":"\u0415\u0432\u0430","surname":"\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432","middle_name":"\u0410\u043d\u0430\u043d\u0438\u0439\u043e\u0432\u0438\u0447","office_position":"sed","is_active":true,"avatar":null,"department_id":1}},{"id":35,"name":"Qui","description":"Velit fuga voluptatem occaecati unde numquam beatae nam.","status":"wait","start_at":"27.01.2022","end_at":"05.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":378,"description":"Optio voluptas autem qui et cumque sit.","is_checked":false,"task_id":35},{"id":379,"description":"Labore aut saepe et quasi fugiat voluptate sequi.","is_checked":false,"task_id":35},{"id":380,"description":"Error culpa cupiditate optio qui.","is_checked":true,"task_id":35},{"id":381,"description":"Ipsum corrupti saepe nihil animi nam qui ut.","is_checked":false,"task_id":35},{"id":382,"description":"Dolores rerum labore quaerat iusto praesentium ipsam est.","is_checked":true,"task_id":35},{"id":383,"description":"Dignissimos quod rerum tenetur quidem facilis perferendis sed enim.","is_checked":true,"task_id":35},{"id":384,"description":"Quia eligendi sit magni et ut temporibus.","is_checked":false,"task_id":35},{"id":385,"description":"Ad consequatur ipsa dicta libero tempore.","is_checked":true,"task_id":35}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":2},"author":{"id":35,"name":"\u0415\u0432\u0430","surname":"\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432","middle_name":"\u0410\u043d\u0430\u043d\u0438\u0439\u043e\u0432\u0438\u0447","office_position":"sed","is_active":true,"avatar":null,"department_id":1},"user":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1}},{"id":34,"name":"Et","description":"In voluptas quo dolores voluptatibus.","status":"wait","start_at":"30.01.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":267,"description":"Suscipit iste quisquam sed quia dolor.","is_checked":true,"task_id":34},{"id":268,"description":"Consequatur ipsa nemo inventore delectus quis maxime.","is_checked":false,"task_id":34},{"id":269,"description":"Voluptatum cum officia qui sint eaque.","is_checked":false,"task_id":34}],"department":{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},"order":{"id":2},"author":{"id":11,"name":"\u041a\u043b\u0430\u0432\u0434\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0432\u0446\u0435\u0432","middle_name":null,"office_position":"aliquam","is_active":true,"avatar":null,"department_id":1},"user":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1}},{"id":33,"name":"Qui","description":"Odio architecto officia aut totam ea.","status":"pause","start_at":"30.01.2022","end_at":"03.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":151,"description":"Et velit necessitatibus dolor necessitatibus provident.","is_checked":true,"task_id":33},{"id":152,"description":"Quia id porro non.","is_checked":true,"task_id":33},{"id":153,"description":"Ab impedit sit modi pariatur enim possimus debitis blanditiis.","is_checked":false,"task_id":33},{"id":154,"description":"Labore qui est enim totam dolore vel.","is_checked":false,"task_id":33},{"id":155,"description":"Itaque sed non adipisci quidem laboriosam.","is_checked":true,"task_id":33},{"id":156,"description":"Distinctio eveniet voluptatem nostrum natus itaque accusantium.","is_checked":true,"task_id":33},{"id":157,"description":"Et voluptas totam sapiente eum.","is_checked":true,"task_id":33},{"id":158,"description":"Eveniet consequatur sint accusamus corporis quis aperiam provident.","is_checked":true,"task_id":33},{"id":159,"description":"Ipsam repellendus ea qui eligendi qui sit numquam.","is_checked":false,"task_id":33},{"id":160,"description":"Harum laudantium laborum cumque dolor ex.","is_checked":true,"task_id":33},{"id":161,"description":"Repellat quae velit vitae molestiae.","is_checked":false,"task_id":33},{"id":162,"description":"Aspernatur error voluptatum dolores vitae non.","is_checked":false,"task_id":33},{"id":163,"description":"Et aspernatur est distinctio adipisci reiciendis consequatur est.","is_checked":true,"task_id":33},{"id":164,"description":"Quidem nisi quae odio rerum.","is_checked":false,"task_id":33}],"department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"order":{"id":1},"author":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1},"user":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1}},{"id":32,"name":"Eum","description":"Corporis facilis nihil aperiam aut.","status":"pause","start_at":"28.01.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":363,"description":"Fuga libero suscipit minima temporibus consequatur ullam rerum.","is_checked":false,"task_id":32},{"id":364,"description":"Provident repellat dolorem omnis est.","is_checked":true,"task_id":32},{"id":365,"description":"Distinctio voluptas sequi quaerat.","is_checked":true,"task_id":32},{"id":366,"description":"Earum et molestiae repellat dolores quod eligendi eveniet.","is_checked":false,"task_id":32},{"id":367,"description":"Rerum eligendi doloribus voluptate sunt.","is_checked":false,"task_id":32},{"id":368,"description":"Et doloremque eos explicabo laudantium aspernatur aliquid accusamus.","is_checked":false,"task_id":32},{"id":369,"description":"Et repellendus provident porro dolorum.","is_checked":true,"task_id":32},{"id":370,"description":"Saepe saepe aspernatur similique occaecati.","is_checked":true,"task_id":32},{"id":371,"description":"Rem consequatur dolorem quia pariatur in molestiae doloribus dolor.","is_checked":true,"task_id":32},{"id":372,"description":"Ipsam iure labore saepe aut omnis deserunt ex.","is_checked":false,"task_id":32},{"id":373,"description":"Distinctio modi quisquam odit voluptatibus commodi nobis non.","is_checked":false,"task_id":32},{"id":374,"description":"Facere exercitationem est nam doloremque.","is_checked":true,"task_id":32},{"id":375,"description":"Et voluptatem dicta qui optio et.","is_checked":true,"task_id":32},{"id":376,"description":"Ut ut qui doloremque beatae eius tenetur praesentium eos.","is_checked":true,"task_id":32},{"id":377,"description":"Id et quo ea et.","is_checked":true,"task_id":32}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":1},"author":{"id":12,"name":"\u042d\u043c\u0438\u043b\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0448\u043e\u0432\u0430","middle_name":"\u041a\u0430\u043f\u0438\u0442\u043e\u043b\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"iste","is_active":true,"avatar":null,"department_id":1},"user":{"id":30,"name":"\u0421\u0435\u0440\u0433\u0435\u0439","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041f\u0440\u043e\u0445\u043e\u0440\u043e\u0432\u0438\u0447","office_position":"quaerat","is_active":true,"avatar":null,"department_id":1}},{"id":31,"name":"Vel","description":"Asperiores modi consequatur aut excepturi cupiditate.","status":"wait","start_at":"28.01.2022","end_at":"06.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":443,"description":"Nihil ut quasi dolor vel incidunt placeat.","is_checked":true,"task_id":31},{"id":444,"description":"Exercitationem ipsam ut amet aspernatur ex eum id.","is_checked":true,"task_id":31},{"id":445,"description":"Illum consequatur est rem provident ut necessitatibus ratione ut.","is_checked":false,"task_id":31},{"id":446,"description":"Suscipit eaque ipsa unde quod id.","is_checked":false,"task_id":31},{"id":447,"description":"Ea sed sapiente inventore architecto.","is_checked":true,"task_id":31},{"id":448,"description":"Eligendi quos aut vitae.","is_checked":true,"task_id":31},{"id":449,"description":"Est fugit itaque molestiae cupiditate consequuntur.","is_checked":true,"task_id":31},{"id":450,"description":"Omnis debitis dolorem et ut quidem facere.","is_checked":false,"task_id":31},{"id":451,"description":"Harum reiciendis ad rerum unde velit nisi est.","is_checked":true,"task_id":31},{"id":452,"description":"Dolore sint quam dolore ipsam consequuntur sit ducimus.","is_checked":true,"task_id":31}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":{"id":2},"author":{"id":1,"name":"\u041f\u0435\u0442\u0440","surname":"\u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432","middle_name":"\u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","office_position":"libero","is_active":true,"avatar":null,"department_id":null},"user":{"id":30,"name":"\u0421\u0435\u0440\u0433\u0435\u0439","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041f\u0440\u043e\u0445\u043e\u0440\u043e\u0432\u0438\u0447","office_position":"quaerat","is_active":true,"avatar":null,"department_id":1}},{"id":30,"name":"Optio","description":"Qui ex iure et error dolor eos.","status":"process","start_at":"28.01.2022","end_at":"06.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":437,"description":"Laboriosam sint omnis dolores.","is_checked":true,"task_id":30},{"id":438,"description":"Totam quasi qui ullam.","is_checked":false,"task_id":30},{"id":439,"description":"Saepe ea veniam ut maiores repellendus.","is_checked":false,"task_id":30},{"id":440,"description":"Facilis qui alias id possimus vel qui fugit corrupti.","is_checked":false,"task_id":30},{"id":441,"description":"A consequatur nam ex minus explicabo quasi aspernatur quia.","is_checked":true,"task_id":30},{"id":442,"description":"Unde quibusdam voluptas tempora possimus fuga nemo et quo.","is_checked":false,"task_id":30}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":{"id":2},"author":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1},"user":{"id":35,"name":"\u0415\u0432\u0430","surname":"\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432","middle_name":"\u0410\u043d\u0430\u043d\u0438\u0439\u043e\u0432\u0438\u0447","office_position":"sed","is_active":true,"avatar":null,"department_id":1}},{"id":29,"name":"Explicabo","description":"Corporis nulla culpa incidunt laborum.","status":"wait","start_at":"30.01.2022","end_at":"11.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":136,"description":"Quia vel quia eligendi dolores aut aut.","is_checked":true,"task_id":29},{"id":137,"description":"Non sit expedita sed aperiam exercitationem laudantium.","is_checked":false,"task_id":29},{"id":138,"description":"Possimus nam officia sit optio.","is_checked":false,"task_id":29},{"id":139,"description":"Id dolore nesciunt magni quae quia.","is_checked":false,"task_id":29},{"id":140,"description":"Non dolorum sit omnis voluptatibus ut.","is_checked":false,"task_id":29},{"id":141,"description":"Tenetur tempore vitae at aut asperiores.","is_checked":true,"task_id":29},{"id":142,"description":"Quibusdam fuga quo quis.","is_checked":true,"task_id":29},{"id":143,"description":"Incidunt architecto voluptatem nihil illum culpa omnis.","is_checked":true,"task_id":29},{"id":144,"description":"Natus dolorum vel aut.","is_checked":false,"task_id":29},{"id":145,"description":"Deleniti labore nisi enim non.","is_checked":false,"task_id":29},{"id":146,"description":"Maxime itaque officia qui inventore dolore est doloribus.","is_checked":false,"task_id":29},{"id":147,"description":"Tempora et voluptatem est dolores unde quo ut vitae.","is_checked":true,"task_id":29},{"id":148,"description":"Vel dolores fugit velit.","is_checked":false,"task_id":29},{"id":149,"description":"Et similique pariatur adipisci ut doloremque error id.","is_checked":true,"task_id":29},{"id":150,"description":"Neque fugit quas non quia provident eligendi.","is_checked":false,"task_id":29}],"department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"order":{"id":2},"author":{"id":35,"name":"\u0415\u0432\u0430","surname":"\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432","middle_name":"\u0410\u043d\u0430\u043d\u0438\u0439\u043e\u0432\u0438\u0447","office_position":"sed","is_active":true,"avatar":null,"department_id":1},"user":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1}},{"id":28,"name":"Possimus","description":"Sequi consectetur aut et veritatis.","status":"done","start_at":"28.01.2022","end_at":"05.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":422,"description":"Nobis voluptas aliquid sit autem rerum.","is_checked":false,"task_id":28},{"id":423,"description":"Voluptatem animi sed mollitia distinctio sit placeat autem nostrum.","is_checked":false,"task_id":28},{"id":424,"description":"Eius dolorem voluptatem nihil dolor accusamus minima.","is_checked":true,"task_id":28},{"id":425,"description":"Ipsam et officiis excepturi at minima sit.","is_checked":true,"task_id":28},{"id":426,"description":"Reiciendis provident harum aut hic distinctio omnis qui.","is_checked":true,"task_id":28},{"id":427,"description":"Ratione dignissimos odio voluptas omnis sequi.","is_checked":false,"task_id":28},{"id":428,"description":"Omnis quis error sint doloribus.","is_checked":true,"task_id":28},{"id":429,"description":"Et voluptas ipsum pariatur deserunt repellendus suscipit.","is_checked":true,"task_id":28},{"id":430,"description":"Maiores est doloremque enim officiis.","is_checked":false,"task_id":28},{"id":431,"description":"Qui perferendis et aut magni nobis.","is_checked":false,"task_id":28},{"id":432,"description":"Qui libero autem dolorem minus laborum et.","is_checked":false,"task_id":28},{"id":433,"description":"A nesciunt eos expedita necessitatibus ad.","is_checked":false,"task_id":28},{"id":434,"description":"Harum suscipit qui fugiat sunt nihil.","is_checked":false,"task_id":28},{"id":435,"description":"Quia nisi doloremque perspiciatis.","is_checked":true,"task_id":28},{"id":436,"description":"Numquam quis quis nobis vel quia quisquam est est.","is_checked":true,"task_id":28}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":{"id":2},"author":{"id":12,"name":"\u042d\u043c\u0438\u043b\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0448\u043e\u0432\u0430","middle_name":"\u041a\u0430\u043f\u0438\u0442\u043e\u043b\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"iste","is_active":true,"avatar":null,"department_id":1},"user":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1}},{"id":27,"name":"Voluptas","description":"Est qui voluptate harum et.","status":"wait","start_at":"27.01.2022","end_at":"11.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":355,"description":"Repudiandae iusto veritatis sint nam sed culpa rerum.","is_checked":true,"task_id":27},{"id":356,"description":"Unde omnis mollitia rem rem.","is_checked":true,"task_id":27},{"id":357,"description":"Aspernatur quos nam molestiae sunt nisi consectetur.","is_checked":true,"task_id":27},{"id":358,"description":"Quia sed eum reiciendis quos aut eligendi.","is_checked":false,"task_id":27},{"id":359,"description":"Sint quae id et dolorem laborum eum optio.","is_checked":true,"task_id":27},{"id":360,"description":"Non animi dolores quis iure et odio.","is_checked":true,"task_id":27},{"id":361,"description":"Natus molestiae magnam et temporibus omnis debitis.","is_checked":true,"task_id":27},{"id":362,"description":"Dolorum qui voluptates rerum dolorem.","is_checked":true,"task_id":27}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":2},"author":{"id":1,"name":"\u041f\u0435\u0442\u0440","surname":"\u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432","middle_name":"\u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","office_position":"libero","is_active":true,"avatar":null,"department_id":null},"user":{"id":27,"name":"\u0418\u0441\u043a\u0440\u0430","surname":"\u0415\u043b\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041d\u0435\u043b\u043b\u0438\u043e\u0432\u0438\u0447","office_position":"voluptas","is_active":true,"avatar":null,"department_id":1}},{"id":26,"name":"Consequatur","description":"Et voluptatem praesentium facilis enim ab enim.","status":"pause","start_at":"30.01.2022","end_at":"10.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":14,"description":"Expedita minima adipisci voluptates.","is_checked":false,"task_id":26},{"id":15,"description":"Magnam doloribus necessitatibus ut sapiente in ducimus accusantium.","is_checked":false,"task_id":26},{"id":16,"description":"Adipisci at mollitia rem.","is_checked":true,"task_id":26},{"id":17,"description":"Vel rerum qui tempora consequatur.","is_checked":false,"task_id":26},{"id":18,"description":"Et dolore ducimus fuga at cupiditate.","is_checked":true,"task_id":26},{"id":19,"description":"Occaecati illo voluptates sunt est voluptatem.","is_checked":false,"task_id":26},{"id":20,"description":"Ratione non repellat blanditiis blanditiis aut delectus.","is_checked":false,"task_id":26},{"id":21,"description":"Recusandae ipsum maxime porro esse voluptates.","is_checked":false,"task_id":26},{"id":22,"description":"Earum voluptate nihil magnam.","is_checked":false,"task_id":26},{"id":23,"description":"Amet quo nihil exercitationem iste.","is_checked":true,"task_id":26}],"department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"order":{"id":2},"author":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1},"user":{"id":1,"name":"\u041f\u0435\u0442\u0440","surname":"\u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432","middle_name":"\u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","office_position":"libero","is_active":true,"avatar":null,"department_id":null}},{"id":25,"name":"Ab","description":"Quaerat necessitatibus veniam suscipit nisi odit.","status":"process","start_at":"30.01.2022","end_at":"11.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":1,"description":"Qui consectetur et et amet rerum optio voluptas.","is_checked":false,"task_id":25},{"id":2,"description":"Repudiandae cumque similique fuga autem unde in sequi.","is_checked":false,"task_id":25},{"id":3,"description":"Quibusdam et quis ad rem.","is_checked":false,"task_id":25},{"id":4,"description":"Aut quisquam quis totam.","is_checked":false,"task_id":25},{"id":5,"description":"Amet quidem atque voluptas minus in itaque doloremque.","is_checked":true,"task_id":25},{"id":6,"description":"Reprehenderit laudantium voluptas et velit.","is_checked":false,"task_id":25},{"id":7,"description":"Voluptatum itaque voluptatum quos nesciunt inventore adipisci.","is_checked":true,"task_id":25},{"id":8,"description":"Qui maxime vitae fugiat.","is_checked":true,"task_id":25},{"id":9,"description":"Tempore enim ab non illum.","is_checked":true,"task_id":25},{"id":10,"description":"In ipsa nobis cumque adipisci provident quod.","is_checked":true,"task_id":25},{"id":11,"description":"Voluptas sint tempore alias.","is_checked":true,"task_id":25},{"id":12,"description":"Est sunt quas odio asperiores.","is_checked":false,"task_id":25},{"id":13,"description":"Ut ratione natus non dicta voluptate.","is_checked":true,"task_id":25}],"department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},"order":{"id":1},"author":{"id":30,"name":"\u0421\u0435\u0440\u0433\u0435\u0439","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041f\u0440\u043e\u0445\u043e\u0440\u043e\u0432\u0438\u0447","office_position":"quaerat","is_active":true,"avatar":null,"department_id":1},"user":{"id":35,"name":"\u0415\u0432\u0430","surname":"\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432","middle_name":"\u0410\u043d\u0430\u043d\u0438\u0439\u043e\u0432\u0438\u0447","office_position":"sed","is_active":true,"avatar":null,"department_id":1}},{"id":24,"name":"Maiores","description":"Sit id voluptate consequatur repellat aliquid alias.","status":"pause","start_at":"27.01.2022","end_at":"07.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":125,"description":"Ut cupiditate voluptates et provident non.","is_checked":true,"task_id":24},{"id":126,"description":"Minus ad aut dolorem.","is_checked":false,"task_id":24},{"id":127,"description":"Placeat ut qui vero delectus cum.","is_checked":true,"task_id":24},{"id":128,"description":"Aliquam illum cupiditate error odit.","is_checked":false,"task_id":24},{"id":129,"description":"Ipsum placeat vel autem nemo iure ut ut.","is_checked":false,"task_id":24},{"id":130,"description":"Deserunt provident quis omnis autem magnam cupiditate.","is_checked":false,"task_id":24},{"id":131,"description":"Aut sit atque harum rerum unde.","is_checked":false,"task_id":24},{"id":132,"description":"Molestiae quae enim aliquam voluptatibus harum.","is_checked":true,"task_id":24},{"id":133,"description":"Cupiditate et consequatur incidunt placeat et dicta.","is_checked":true,"task_id":24},{"id":134,"description":"Placeat excepturi totam asperiores quas.","is_checked":false,"task_id":24},{"id":135,"description":"Illo dignissimos et animi consequatur.","is_checked":false,"task_id":24}],"department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"order":{"id":2},"author":{"id":30,"name":"\u0421\u0435\u0440\u0433\u0435\u0439","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041f\u0440\u043e\u0445\u043e\u0440\u043e\u0432\u0438\u0447","office_position":"quaerat","is_active":true,"avatar":null,"department_id":1},"user":{"id":30,"name":"\u0421\u0435\u0440\u0433\u0435\u0439","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041f\u0440\u043e\u0445\u043e\u0440\u043e\u0432\u0438\u0447","office_position":"quaerat","is_active":true,"avatar":null,"department_id":1}},{"id":23,"name":"Est","description":"Beatae voluptas minima alias hic ratione nobis voluptatum facilis.","status":"pause","start_at":"30.01.2022","end_at":"10.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":119,"description":"Et at laudantium repellendus rerum labore et non.","is_checked":false,"task_id":23},{"id":120,"description":"Omnis qui quasi unde delectus non.","is_checked":true,"task_id":23},{"id":121,"description":"Officiis impedit nostrum inventore autem.","is_checked":true,"task_id":23},{"id":122,"description":"Accusamus quas eos ullam et veniam.","is_checked":true,"task_id":23},{"id":123,"description":"Sequi perferendis reprehenderit voluptatem.","is_checked":true,"task_id":23},{"id":124,"description":"Impedit ratione autem aperiam tempora omnis voluptatem natus.","is_checked":true,"task_id":23}],"department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"order":{"id":2},"author":{"id":27,"name":"\u0418\u0441\u043a\u0440\u0430","surname":"\u0415\u043b\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041d\u0435\u043b\u043b\u0438\u043e\u0432\u0438\u0447","office_position":"voluptas","is_active":true,"avatar":null,"department_id":1},"user":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1}},{"id":22,"name":"Aut","description":"Minima laborum natus explicabo temporibus.","status":"pause","start_at":"29.01.2022","end_at":"05.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":248,"description":"Culpa aliquid nobis est dicta numquam.","is_checked":true,"task_id":22},{"id":249,"description":"Quo quis ut culpa laboriosam.","is_checked":false,"task_id":22},{"id":250,"description":"Molestias illo earum voluptas dolor quod.","is_checked":false,"task_id":22},{"id":251,"description":"Quo quia iure natus.","is_checked":false,"task_id":22},{"id":252,"description":"Magnam autem repellat libero aspernatur autem.","is_checked":true,"task_id":22},{"id":253,"description":"Provident cumque omnis et et blanditiis.","is_checked":false,"task_id":22},{"id":254,"description":"Et commodi asperiores sit quasi laudantium minima enim.","is_checked":true,"task_id":22},{"id":255,"description":"Placeat reiciendis magni voluptatibus in optio.","is_checked":false,"task_id":22},{"id":256,"description":"Error deserunt quibusdam assumenda perspiciatis qui voluptas aut.","is_checked":true,"task_id":22},{"id":257,"description":"Est et qui quasi numquam sint.","is_checked":true,"task_id":22},{"id":258,"description":"Expedita optio est consequatur fugiat et nostrum consequatur aperiam.","is_checked":true,"task_id":22},{"id":259,"description":"Accusamus soluta dolor aut.","is_checked":true,"task_id":22},{"id":260,"description":"Tenetur maiores pariatur qui quia porro eveniet et quia.","is_checked":false,"task_id":22},{"id":261,"description":"Et in aut recusandae rerum omnis commodi vitae dolorum.","is_checked":true,"task_id":22},{"id":262,"description":"Dolor ipsa ut fugiat.","is_checked":false,"task_id":22},{"id":263,"description":"Qui libero voluptatum quam ex rerum.","is_checked":false,"task_id":22},{"id":264,"description":"Deserunt nobis aut consequatur et.","is_checked":true,"task_id":22},{"id":265,"description":"Et eum ad sed quisquam.","is_checked":true,"task_id":22},{"id":266,"description":"Molestias et sit nisi molestias ut.","is_checked":true,"task_id":22}],"department":{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},"order":{"id":2},"author":{"id":25,"name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041c\u0430\u043b\u044c\u0432\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"et","is_active":true,"avatar":null,"department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}},{"id":21,"name":"Modi","description":"Perferendis distinctio modi veniam dignissimos voluptate molestias illum voluptas.","status":"done","start_at":"28.01.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":415,"description":"Debitis sequi dolores amet.","is_checked":true,"task_id":21},{"id":416,"description":"Distinctio dolor eius ut.","is_checked":true,"task_id":21},{"id":417,"description":"Rerum animi voluptatibus dolore rerum reiciendis et.","is_checked":true,"task_id":21},{"id":418,"description":"Ex ut soluta nobis animi.","is_checked":true,"task_id":21},{"id":419,"description":"Eum id aut culpa doloribus incidunt at.","is_checked":true,"task_id":21},{"id":420,"description":"Et dolorum recusandae cupiditate ut voluptatem est incidunt qui.","is_checked":true,"task_id":21},{"id":421,"description":"Harum culpa iste quidem consequatur minus incidunt eius et.","is_checked":false,"task_id":21}],"department":{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},"order":{"id":1},"author":{"id":11,"name":"\u041a\u043b\u0430\u0432\u0434\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0432\u0446\u0435\u0432","middle_name":null,"office_position":"aliquam","is_active":true,"avatar":null,"department_id":1},"user":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1}},{"id":20,"name":"Voluptatem","description":"Aspernatur consequuntur suscipit voluptas omnis consequatur amet repellat.","status":"done","start_at":"28.01.2022","end_at":"06.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":228,"description":"Quisquam eaque quo quas et ea ab facere.","is_checked":false,"task_id":20},{"id":229,"description":"Rerum est fugit iusto sit.","is_checked":false,"task_id":20},{"id":230,"description":"Possimus enim eos nesciunt consectetur modi aperiam in.","is_checked":false,"task_id":20},{"id":231,"description":"Consequuntur commodi et voluptas porro.","is_checked":true,"task_id":20},{"id":232,"description":"Enim ab omnis voluptates amet ut accusantium.","is_checked":true,"task_id":20},{"id":233,"description":"Cumque sit voluptas ea necessitatibus est voluptatem.","is_checked":false,"task_id":20},{"id":234,"description":"Voluptas aliquam consequatur magnam est.","is_checked":true,"task_id":20},{"id":235,"description":"Et corporis nam et nulla odio.","is_checked":true,"task_id":20},{"id":236,"description":"Quo ipsa inventore mollitia molestiae autem.","is_checked":true,"task_id":20},{"id":237,"description":"Laboriosam sapiente porro omnis assumenda autem est.","is_checked":false,"task_id":20},{"id":238,"description":"Ipsa libero enim et reprehenderit adipisci odit dolor.","is_checked":true,"task_id":20},{"id":239,"description":"Veniam consequatur culpa voluptatem deleniti unde laborum.","is_checked":true,"task_id":20},{"id":240,"description":"Maxime ad voluptatum quis quis distinctio dolorem nobis.","is_checked":true,"task_id":20},{"id":241,"description":"Nulla consequatur et voluptates non voluptate qui.","is_checked":true,"task_id":20},{"id":242,"description":"Adipisci iste maxime veniam veritatis enim assumenda odio.","is_checked":true,"task_id":20},{"id":243,"description":"Et sequi illum ut dolore.","is_checked":true,"task_id":20},{"id":244,"description":"Exercitationem quo excepturi eaque necessitatibus et placeat nulla et.","is_checked":true,"task_id":20},{"id":245,"description":"Voluptatem voluptatibus quia est soluta dolorem optio animi.","is_checked":false,"task_id":20},{"id":246,"description":"Sed consequatur ullam fugit modi nihil ut similique.","is_checked":true,"task_id":20},{"id":247,"description":"Odio dicta quam at voluptas reprehenderit quo nam.","is_checked":false,"task_id":20}],"department":{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},"order":{"id":2},"author":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1},"user":{"id":16,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0410\u0440\u0445\u0438\u043f\u043e\u0432","middle_name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"velit","is_active":true,"avatar":null,"department_id":1}},{"id":19,"name":"Voluptate","description":"Et dolor in cum assumenda atque non.","status":"process","start_at":"28.01.2022","end_at":"03.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":225,"description":"Impedit ullam autem est adipisci esse et velit.","is_checked":true,"task_id":19},{"id":226,"description":"Quidem magnam assumenda eum quia.","is_checked":false,"task_id":19},{"id":227,"description":"Impedit rerum dolores praesentium asperiores voluptas.","is_checked":false,"task_id":19}],"department":{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},"order":{"id":2},"author":{"id":25,"name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432","surname":"\u0422\u0440\u043e\u0444\u0438\u043c\u043e\u0432\u0430","middle_name":"\u041c\u0430\u043b\u044c\u0432\u0438\u043d\u0430\u043e\u0432\u0438\u0447","office_position":"et","is_active":true,"avatar":null,"department_id":1},"user":{"id":11,"name":"\u041a\u043b\u0430\u0432\u0434\u0438\u044f","surname":"\u041a\u0443\u0434\u0440\u044f\u0432\u0446\u0435\u0432","middle_name":null,"office_position":"aliquam","is_active":true,"avatar":null,"department_id":1}},{"id":18,"name":"Soluta","description":"Eius odit odit nobis sit qui expedita suscipit.","status":"wait","start_at":"29.01.2022","end_at":"10.02.2022","deadline_at":"13.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":105,"description":"Quia dignissimos nihil hic laboriosam et autem possimus.","is_checked":true,"task_id":18},{"id":106,"description":"Non quia iusto deleniti aliquam.","is_checked":false,"task_id":18},{"id":107,"description":"Aut quia quam enim quia quia velit.","is_checked":false,"task_id":18},{"id":108,"description":"Qui est ipsam non deserunt sed aliquid.","is_checked":false,"task_id":18},{"id":109,"description":"Est voluptatem sed corporis.","is_checked":false,"task_id":18},{"id":110,"description":"Velit vel saepe nihil quis accusamus vel odit.","is_checked":true,"task_id":18},{"id":111,"description":"Consectetur inventore temporibus suscipit commodi.","is_checked":true,"task_id":18},{"id":112,"description":"Necessitatibus sunt tempora ut et officia.","is_checked":true,"task_id":18},{"id":113,"description":"Et suscipit error ipsam et et aut porro.","is_checked":true,"task_id":18},{"id":114,"description":"Rerum corporis necessitatibus quisquam ab optio atque reiciendis.","is_checked":false,"task_id":18},{"id":115,"description":"Qui autem delectus sed id sint dicta neque.","is_checked":false,"task_id":18},{"id":116,"description":"Sint consequatur aut ut exercitationem sint.","is_checked":true,"task_id":18},{"id":117,"description":"Ea at repellendus non.","is_checked":false,"task_id":18},{"id":118,"description":"Provident veniam quidem alias soluta nobis nam ut.","is_checked":false,"task_id":18}],"department":{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"},"order":{"id":2},"author":{"id":1,"name":"\u041f\u0435\u0442\u0440","surname":"\u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432","middle_name":"\u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","office_position":"libero","is_active":true,"avatar":null,"department_id":null},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}}],"links":{"first":"http:\/\/127.0.0.1:8000\/api\/tasks?page=1","last":"http:\/\/127.0.0.1:8000\/api\/tasks?page=2","prev":null,"next":"http:\/\/127.0.0.1:8000\/api\/tasks?page=2"},"meta":{"current_page":1,"from":1,"last_page":2,"links":[{"url":null,"label":"&laquo; \u041d\u0430\u0437\u0430\u0434","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/tasks?page=1","label":"1","active":true},{"url":"http:\/\/127.0.0.1:8000\/api\/tasks?page=2","label":"2","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/tasks?page=2","label":"\u0412\u043f\u0435\u0440\u0451\u0434 &raquo;","active":false}],"path":"http:\/\/127.0.0.1:8000\/api\/tasks","per_page":30,"to":30,"total":47}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tasks
+    metadata:
+      title: 'Добавление задачи'
+      description: 'Права: `create tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      status:
+        name: status
+        description: 'Must be one of <code>wait</code>, <code>process</code>, <code>pause</code>, or <code>done</code>.'
+        required: false
+        example: done
+        type: string
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      deadline_at:
+        name: deadline_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      start_at:
+        name: start_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      end_at:
+        name: end_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      order_id:
+        name: order_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      checkboxes:
+        name: checkboxes
+        description: ''
+        required: false
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+      temp_file_ids:
+        name: temp_file_ids
+        description: |-
+          Id временных файлов, загруженных отдельно до добавления задачи. Эти
+          временные файлы будут добавлены к задаче
+        required: false
+        example: consequatur
+        type: 'array[integer]'
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"order_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f order id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."],"temp_file_ids":["\u041f\u043e\u043b\u0435 temp file ids \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043c\u0430\u0441\u0441\u0438\u0432\u043e\u043c."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tasks/{id}'
+    metadata:
+      title: 'Получение задачи'
+      description: 'Права: `read tasks` или `read department tasks` или `read own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"task":{"id":17,"name":"Dolor","description":"Non nam et est est.","status":"done","start_at":"27.01.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","checkboxes":[{"id":338,"description":"Occaecati perspiciatis laudantium quam ipsam esse non.","is_checked":true,"task_id":17},{"id":339,"description":"Omnis cum vel minus et.","is_checked":true,"task_id":17},{"id":340,"description":"Dolorem eos qui ipsam.","is_checked":false,"task_id":17},{"id":341,"description":"Et blanditiis quis architecto pariatur culpa qui reprehenderit fugiat.","is_checked":false,"task_id":17},{"id":342,"description":"Facilis placeat sit et eligendi natus vel.","is_checked":false,"task_id":17},{"id":343,"description":"Voluptatum at earum modi hic quaerat.","is_checked":true,"task_id":17},{"id":344,"description":"Esse quas ipsam reiciendis nesciunt distinctio officia.","is_checked":false,"task_id":17},{"id":345,"description":"Veritatis voluptatem voluptate ipsam magnam sit odit sapiente.","is_checked":true,"task_id":17},{"id":346,"description":"Est qui magnam rerum doloribus aspernatur.","is_checked":false,"task_id":17},{"id":347,"description":"Est totam atque itaque dolorum exercitationem voluptate.","is_checked":false,"task_id":17},{"id":348,"description":"Consequatur consequatur voluptatibus unde recusandae totam ut.","is_checked":true,"task_id":17},{"id":349,"description":"Exercitationem iste natus vel ut.","is_checked":true,"task_id":17},{"id":350,"description":"Architecto eius harum quisquam est.","is_checked":true,"task_id":17},{"id":351,"description":"Sed distinctio aliquam beatae velit.","is_checked":false,"task_id":17},{"id":352,"description":"Sit modi hic repellat ut sunt a.","is_checked":false,"task_id":17},{"id":353,"description":"Ut vel debitis iure voluptate ipsum.","is_checked":true,"task_id":17},{"id":354,"description":"Mollitia non quia unde dignissimos nam pariatur.","is_checked":false,"task_id":17}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":1},"author":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1},"files":[]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/tasks/{id}'
+    metadata:
+      title: 'Обновление задачи'
+      description: 'Права: `update tasks` или `update department tasks` или `update own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      status:
+        name: status
+        description: 'Must be one of <code>wait</code>, <code>process</code>, <code>pause</code>, or <code>done</code>.'
+        required: true
+        example: done
+        type: string
+        custom: []
+      checkboxes:
+        name: checkboxes
+        description: ''
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      deadline_at:
+        name: deadline_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      start_at:
+        name: start_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      end_at:
+        name: end_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      order_id:
+        name: order_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      delete_file_ids:
+        name: delete_file_ids
+        description: 'Id файлов задачи, которые необходимо удалить'
+        required: false
+        example: consequatur
+        type: 'array[integer]'
+        custom: []
+      temp_file_ids:
+        name: temp_file_ids
+        description: |-
+          Id временных файлов, загруженных отдельно до обновления задачи. Эти
+          временные файлы будут добавлены к задаче
+        required: false
+        example: consequatur
+        type: 'array[integer]'
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"order_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f order id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."],"delete_file_ids":["\u041f\u043e\u043b\u0435 delete file ids \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043c\u0430\u0441\u0441\u0438\u0432\u043e\u043c."],"temp_file_ids":["\u041f\u043e\u043b\u0435 temp file ids \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043c\u0430\u0441\u0441\u0438\u0432\u043e\u043c."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tasks/{id}'
+    metadata:
+      title: 'Удаление задачи'
+      description: 'Права: `delete tasks` или `delete department tasks` или `delete own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the task.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tasks/checkboxes/{checkbox}/status'
+    metadata:
+      title: 'Обновление статуса чебокса'
+      description: 'Права: `update tasks` или `update department tasks` или `update own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      checkbox:
+        name: checkbox
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      is_checked:
+        name: is_checked
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"checkbox":{"id":17,"description":"Vel rerum qui tempora consequatur.","is_checked":true,"task_id":26}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tasks/checkboxes/{checkbox}'
+    metadata:
+      title: 'Обновление чекбокса задачи'
+      description: 'Права: `update tasks` или `update department tasks` или `update own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      checkbox:
+        name: checkbox
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      description:
+        name: description
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      is_checked:
+        name: is_checked
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"checkbox":{"id":17,"description":"consequatur","is_checked":false,"task_id":26}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/tasks/checkboxes/{checkbox}'
+    metadata:
+      title: 'Удаление чекбокса задачи'
+      description: 'Права: `update tasks` или `update department tasks` или `update own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      checkbox:
+        name: checkbox
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tasks/{task}/to/process'
+    metadata:
+      title: 'Начало работы на задачей'
+      description: |-
+        Статус изменяетя на process и изменение start_at. Если start_at не указан в запросе,
+        то берется текущая дата
+
+        Права: `update tasks` или `update department tasks` или `update own tasks`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      start_at:
+        name: start_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"task":{"id":17,"name":"Dolor","description":"Non nam et est est.","status":"process","start_at":"06.02.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 15:07","checkboxes":[{"id":338,"description":"Occaecati perspiciatis laudantium quam ipsam esse non.","is_checked":true,"task_id":17},{"id":339,"description":"Omnis cum vel minus et.","is_checked":true,"task_id":17},{"id":340,"description":"Dolorem eos qui ipsam.","is_checked":false,"task_id":17},{"id":341,"description":"Et blanditiis quis architecto pariatur culpa qui reprehenderit fugiat.","is_checked":false,"task_id":17},{"id":342,"description":"Facilis placeat sit et eligendi natus vel.","is_checked":false,"task_id":17},{"id":343,"description":"Voluptatum at earum modi hic quaerat.","is_checked":true,"task_id":17},{"id":344,"description":"Esse quas ipsam reiciendis nesciunt distinctio officia.","is_checked":false,"task_id":17},{"id":345,"description":"Veritatis voluptatem voluptate ipsam magnam sit odit sapiente.","is_checked":true,"task_id":17},{"id":346,"description":"Est qui magnam rerum doloribus aspernatur.","is_checked":false,"task_id":17},{"id":347,"description":"Est totam atque itaque dolorum exercitationem voluptate.","is_checked":false,"task_id":17},{"id":348,"description":"Consequatur consequatur voluptatibus unde recusandae totam ut.","is_checked":true,"task_id":17},{"id":349,"description":"Exercitationem iste natus vel ut.","is_checked":true,"task_id":17},{"id":350,"description":"Architecto eius harum quisquam est.","is_checked":true,"task_id":17},{"id":351,"description":"Sed distinctio aliquam beatae velit.","is_checked":false,"task_id":17},{"id":352,"description":"Sit modi hic repellat ut sunt a.","is_checked":false,"task_id":17},{"id":353,"description":"Ut vel debitis iure voluptate ipsum.","is_checked":true,"task_id":17},{"id":354,"description":"Mollitia non quia unde dignissimos nam pariatur.","is_checked":false,"task_id":17}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":1},"author":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tasks/{task}/to/pause'
+    metadata:
+      title: 'Приостановить работу над задачей'
+      description: |-
+        Статус меняется на pause
+
+        Права: `update tasks` или `update department tasks` или `update own tasks`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"task":{"id":17,"name":"Dolor","description":"Non nam et est est.","status":"pause","start_at":"27.01.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 15:07","checkboxes":[{"id":338,"description":"Occaecati perspiciatis laudantium quam ipsam esse non.","is_checked":true,"task_id":17},{"id":339,"description":"Omnis cum vel minus et.","is_checked":true,"task_id":17},{"id":340,"description":"Dolorem eos qui ipsam.","is_checked":false,"task_id":17},{"id":341,"description":"Et blanditiis quis architecto pariatur culpa qui reprehenderit fugiat.","is_checked":false,"task_id":17},{"id":342,"description":"Facilis placeat sit et eligendi natus vel.","is_checked":false,"task_id":17},{"id":343,"description":"Voluptatum at earum modi hic quaerat.","is_checked":true,"task_id":17},{"id":344,"description":"Esse quas ipsam reiciendis nesciunt distinctio officia.","is_checked":false,"task_id":17},{"id":345,"description":"Veritatis voluptatem voluptate ipsam magnam sit odit sapiente.","is_checked":true,"task_id":17},{"id":346,"description":"Est qui magnam rerum doloribus aspernatur.","is_checked":false,"task_id":17},{"id":347,"description":"Est totam atque itaque dolorum exercitationem voluptate.","is_checked":false,"task_id":17},{"id":348,"description":"Consequatur consequatur voluptatibus unde recusandae totam ut.","is_checked":true,"task_id":17},{"id":349,"description":"Exercitationem iste natus vel ut.","is_checked":true,"task_id":17},{"id":350,"description":"Architecto eius harum quisquam est.","is_checked":true,"task_id":17},{"id":351,"description":"Sed distinctio aliquam beatae velit.","is_checked":false,"task_id":17},{"id":352,"description":"Sit modi hic repellat ut sunt a.","is_checked":false,"task_id":17},{"id":353,"description":"Ut vel debitis iure voluptate ipsum.","is_checked":true,"task_id":17},{"id":354,"description":"Mollitia non quia unde dignissimos nam pariatur.","is_checked":false,"task_id":17}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":1},"author":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tasks/{task}/to/done'
+    metadata:
+      title: 'Завершить работу над задачей'
+      description: |-
+        Статус меняется на done и изменение end_at. Если end_at не указан в запросе,
+        то берется текущая дата
+
+        Права: `update tasks` или `update department tasks` или `update own tasks`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      end_at:
+        name: end_at
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2022-02-06'
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"task":{"id":17,"name":"Dolor","description":"Non nam et est est.","status":"done","start_at":"27.01.2022","end_at":"06.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 15:07","checkboxes":[{"id":338,"description":"Occaecati perspiciatis laudantium quam ipsam esse non.","is_checked":true,"task_id":17},{"id":339,"description":"Omnis cum vel minus et.","is_checked":true,"task_id":17},{"id":340,"description":"Dolorem eos qui ipsam.","is_checked":false,"task_id":17},{"id":341,"description":"Et blanditiis quis architecto pariatur culpa qui reprehenderit fugiat.","is_checked":false,"task_id":17},{"id":342,"description":"Facilis placeat sit et eligendi natus vel.","is_checked":false,"task_id":17},{"id":343,"description":"Voluptatum at earum modi hic quaerat.","is_checked":true,"task_id":17},{"id":344,"description":"Esse quas ipsam reiciendis nesciunt distinctio officia.","is_checked":false,"task_id":17},{"id":345,"description":"Veritatis voluptatem voluptate ipsam magnam sit odit sapiente.","is_checked":true,"task_id":17},{"id":346,"description":"Est qui magnam rerum doloribus aspernatur.","is_checked":false,"task_id":17},{"id":347,"description":"Est totam atque itaque dolorum exercitationem voluptate.","is_checked":false,"task_id":17},{"id":348,"description":"Consequatur consequatur voluptatibus unde recusandae totam ut.","is_checked":true,"task_id":17},{"id":349,"description":"Exercitationem iste natus vel ut.","is_checked":true,"task_id":17},{"id":350,"description":"Architecto eius harum quisquam est.","is_checked":true,"task_id":17},{"id":351,"description":"Sed distinctio aliquam beatae velit.","is_checked":false,"task_id":17},{"id":352,"description":"Sit modi hic repellat ut sunt a.","is_checked":false,"task_id":17},{"id":353,"description":"Ut vel debitis iure voluptate ipsum.","is_checked":true,"task_id":17},{"id":354,"description":"Mollitia non quia unde dignissimos nam pariatur.","is_checked":false,"task_id":17}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":1},"author":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tasks/{task}/status'
+    metadata:
+      title: 'Обновление статуса задачи'
+      description: 'Права: `update tasks` или `update department tasks` или `update own tasks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      task:
+        name: task
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      status:
+        name: status
+        description: 'Must be one of <code>wait</code>, <code>process</code>, <code>pause</code>, or <code>done</code>.'
+        required: true
+        example: wait
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"task":{"id":17,"name":"Dolor","description":"Non nam et est est.","status":"wait","start_at":"27.01.2022","end_at":"04.02.2022","deadline_at":"12.02.2022","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 15:07","checkboxes":[{"id":338,"description":"Occaecati perspiciatis laudantium quam ipsam esse non.","is_checked":true,"task_id":17},{"id":339,"description":"Omnis cum vel minus et.","is_checked":true,"task_id":17},{"id":340,"description":"Dolorem eos qui ipsam.","is_checked":false,"task_id":17},{"id":341,"description":"Et blanditiis quis architecto pariatur culpa qui reprehenderit fugiat.","is_checked":false,"task_id":17},{"id":342,"description":"Facilis placeat sit et eligendi natus vel.","is_checked":false,"task_id":17},{"id":343,"description":"Voluptatum at earum modi hic quaerat.","is_checked":true,"task_id":17},{"id":344,"description":"Esse quas ipsam reiciendis nesciunt distinctio officia.","is_checked":false,"task_id":17},{"id":345,"description":"Veritatis voluptatem voluptate ipsam magnam sit odit sapiente.","is_checked":true,"task_id":17},{"id":346,"description":"Est qui magnam rerum doloribus aspernatur.","is_checked":false,"task_id":17},{"id":347,"description":"Est totam atque itaque dolorum exercitationem voluptate.","is_checked":false,"task_id":17},{"id":348,"description":"Consequatur consequatur voluptatibus unde recusandae totam ut.","is_checked":true,"task_id":17},{"id":349,"description":"Exercitationem iste natus vel ut.","is_checked":true,"task_id":17},{"id":350,"description":"Architecto eius harum quisquam est.","is_checked":true,"task_id":17},{"id":351,"description":"Sed distinctio aliquam beatae velit.","is_checked":false,"task_id":17},{"id":352,"description":"Sit modi hic repellat ut sunt a.","is_checked":false,"task_id":17},{"id":353,"description":"Ut vel debitis iure voluptate ipsum.","is_checked":true,"task_id":17},{"id":354,"description":"Mollitia non quia unde dignissimos nam pariatur.","is_checked":false,"task_id":17}],"department":{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},"order":{"id":1},"author":{"id":9,"name":"\u0414\u0430\u043d\u0438\u0438\u043b","surname":"\u041c\u043e\u0438\u0441\u0435\u0435\u0432","middle_name":"\u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447","office_position":"molestiae","is_active":true,"avatar":null,"department_id":1},"user":{"id":6,"name":"\u042f\u043a\u043e\u0432","surname":"\u0424\u043e\u043c\u0438\u043d","middle_name":null,"office_position":"libero","is_active":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/21\/llwcpkmghpvff2at.png","department_id":1}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

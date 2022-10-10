@@ -1,0 +1,280 @@
+name: Пользователь
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      title: Вход
+      description: 'Аккаунт пользователя должен быть активным (is_active равно 1)'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "success": true,
+           "user": {
+               "id": 2,
+               "name": "Иван",
+               "surname": "Сидоров",
+               "middle_name": "Петрович",
+               "phone": "+7 (922) 489-0478",
+               ...
+           },
+           "api_token": "2|Vdl7CeO6oAn5jmkpdkWYvxyLQSBfjxJTkAK6nS1i"
+          }
+        headers: []
+        description: '200, success'
+      -
+        status: 401
+        content: |-
+          {
+           "success": false
+           "message": "Неправильный логин или пароль",
+          }
+        headers: []
+        description: '401, invalid password'
+      -
+        status: 401
+        content: |-
+          {
+           "success": false
+           "message": "Личный кабинет заблокирован администратором",
+          }
+        headers: []
+        description: '401, user is not active'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/user
+    metadata:
+      title: 'Получение текущего пользователя'
+      description: |-
+        Получение основных данных, информации про отдел, роли, права роли.
+
+        У пользователя есть роль. У роли есть права. Например, у роли `manager` есть право `crud roles`.
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "success": true,
+          "user": {
+               "id": 2,
+               "name": "Иван",
+               "surname": "Сидоров",
+               "middle_name": "Петрович",
+               "phone": "+7 (922) 489-0478",
+               "born_at": "11.09.1971",
+               "office_position": "numquam",
+               "about": "Molestiae facilis harum occaecati non aut quis aut magni.",
+               "email": "user@user.ru",
+               "is_active": true,
+               "is_about_visible": true,
+               "is_born_at_visible": false,
+               "login_at": "16.01.2022",
+               "avatar": null,
+               "department": {
+                   "id": 3,
+                   "name": "veritatis / eum",
+                   "slug": "id-sed-aut-molestias-modi-natus-est-nequ"
+               },
+               "roles": [
+                   {
+                       "id": 3,
+                       "name": "manager",
+                       "title": "Менеджер"
+                   }
+               ],
+               "permissions": [
+                   {
+                       "name": "crud roles",
+                       "title": "Доступны все действия над ролями"
+                   },
+                   {
+                       "name": "cud users",
+                       "title": "Создание, редактирование и удаление сотрудников"
+                   }
+               ]
+             }
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/user/permissions
+    metadata:
+      title: 'Получение прав'
+      description: 'Получение списка прав и списка ролей текущего пользователя'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"permissions":[{"name":"crud finances","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441 \u0444\u0438\u043d\u0430\u043d\u0441\u0430\u043c\u0438"},{"name":"crud storages","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441\u043e \u0441\u043a\u043b\u0430\u0434\u043e\u043c"},{"name":"crud fuels","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u0432\u0438\u0434\u0430\u043c\u0438 \u0442\u043e\u043f\u043b\u0438\u0432\u0430"},{"name":"crud engine volumes","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u043e\u0431\u044a\u0435\u043c\u0430\u043c\u0438 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u044f"},{"name":"crud car marks","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u043c\u0430\u0440\u043a\u0430\u043c\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u0439"},{"name":"crud car models","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u043c\u043e\u0434\u0435\u043b\u044f\u043c\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u0439"},{"name":"crud cars","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f\u043c\u0438"},{"name":"crud cities","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u0433\u043e\u0440\u043e\u0434\u0430\u043c\u0438"},{"name":"crud roles","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u0440\u043e\u043b\u044f\u043c\u0438"},{"name":"crud departments","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u043e\u0442\u0434\u0435\u043b\u0430\u043c\u0438"},{"name":"read tasks","title":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0432\u0441\u0435\u0445 \u0437\u0430\u0434\u0430\u0447"},{"name":"read department tasks","title":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0437\u0430\u0434\u0430\u0447 \u0442\u043e\u043b\u044c\u043a\u043e \u0441\u0432\u043e\u0435\u0433\u043e \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f"},{"name":"read own tasks","title":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0442\u043e\u043b\u044c\u043a\u043e \u0441\u0432\u043e\u0438\u0445 \u0437\u0430\u0434\u0430\u0447"},{"name":"create tasks","title":"\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0437\u0430\u0434\u0430\u0447"},{"name":"update tasks","title":"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0437\u0430\u0434\u0430\u0447"},{"name":"update department tasks","title":"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0437\u0430\u0434\u0430\u0447 \u0442\u043e\u043b\u044c\u043a\u043e \u0441\u0432\u043e\u0435\u0433\u043e \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f"},{"name":"update own tasks","title":"\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0441\u0432\u043e\u0438\u0445 \u0437\u0430\u0434\u0430\u0447"},{"name":"delete tasks","title":"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043b\u044e\u0431\u043e\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"},{"name":"delete department tasks","title":"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043b\u044e\u0431\u043e\u0439 \u0437\u0430\u0434\u0430\u0447\u0438 \u0441\u0432\u043e\u0435\u0433\u043e \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u044f"},{"name":"delete own tasks","title":"\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043b\u044e\u0431\u043e\u0439 \u0441\u0432\u043e\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"},{"name":"crud users","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a\u0430\u043c\u0438"},{"name":"read users","title":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a\u043e\u0432"},{"name":"crud clients","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u043d\u0430\u0434 \u043a\u043b\u0438\u0435\u043d\u0442\u0430\u043c\u0438"},{"name":"read clients","title":"\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432"},{"name":"crud pipelines","title":"\u0412\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441 \u0432\u043e\u0440\u043e\u043d\u043a\u0430\u043c\u0438 \u0438 \u0438\u0445 \u044d\u0442\u0430\u043f\u0430\u043c\u0438"}],"roles":[{"id":4,"name":"director","title":"\u0414\u0438\u0440\u0435\u043a\u0442\u043e\u0440","created_at":"06.02.2022"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/logout
+    metadata:
+      title: Выход
+      description: 'Удаление всех токенов текущего пользователя'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/password/email
+    metadata:
+      title: 'Email для сброса пароля'
+      description: |-
+        Отправка ссылки для сброса пароля на email.
+
+        Пример ссылки: http://127.0.0.1:8000/password/reset/8dcac035833f2b09a862cad429e078ae78b94e69be798d19624aca9ce177a176?email=user%40user.ru
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Ссылка на сброс пароля была отправлена"
+          }
+        headers: []
+        description: '200, success'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/auth/password/reset
+    metadata:
+      title: 'Обновление пароля'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      token:
+        name: token
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      email:
+        name: email
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Пароль должен содержать не менее 8 символов'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+            "success": true,
+            "message": "Ваш пароль был сброшен",
+          }
+        headers: []
+        description: '200, success'
+      -
+        status: 422
+        content: |-
+          {
+            "success": false,
+            "message": "Ошибочный код сброса пароля",
+          }
+        headers: []
+        description: '422'
+    responseFields: []

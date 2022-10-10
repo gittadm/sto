@@ -1,0 +1,91 @@
+{
+    "success": true,
+    "user": {
+        "id": 103,
+        "name": "TestName",
+        "surname": null,
+        "middle_name": null,
+        "phone": "3423434",
+        "born_at": "12.12.1990",
+        "office_position": null,
+        "about": "test",
+        "email": "user@user.ru12",
+        "is_active": true,
+        "is_about_visible": true,
+        "is_born_at_visible": false,
+        "login_at": null,
+        "avatar": null,
+        "department": {
+            "id": 1,
+            "name": "consequuntur / maxime",
+            "slug": "repellendus-quia-ea-sequi-quia-fugit"
+        },
+        "roles": [
+            {
+                "id": 1,
+                "name": "admin",
+                "title": "Администратор"
+            }
+        ],
+        "permissions": [
+            {
+                "name": "crud storages",
+                "title": "Доступны все действия со складом"
+            },
+            {
+                "name": "crud finances",
+                "title": "Доступны все действия с финансами"
+            },
+            {
+                "name": "crud engine volumes",
+                "title": "Доступны все действия над объемами двигателя"
+            },
+            {
+                "name": "crud fuels",
+                "title": "Доступны все действия над видами топлива"
+            },
+            {
+                "name": "crud car models",
+                "title": "Доступны все действия над моделями автомобилей"
+            },
+            {
+                "name": "crud car marks",
+                "title": "Доступны все действия над марками автомобилей"
+            },
+            {
+                "name": "crud cars",
+                "title": "Доступны все действия над автомобилями"
+            },
+            {
+                "name": "read clients",
+                "title": "Просмотр клиентов"
+            },
+            {
+                "name": "crud clients",
+                "title": "Создание, редактирование и удаление клиентов"
+            },
+            {
+                "name": "crud cities",
+                "title": "Доступны все действия над городами"
+            },
+            {
+                "name": "crud users",
+                "title": "Создание, редактирование и удаление сотрудников"
+            },
+            {
+                "name": "crud departments",
+                "title": "Доступны все действия над отделами"
+            },
+            {
+                "name": "crud roles",
+                "title": "Доступны все действия над ролями"
+            },
+            {
+                "name": "read users",
+                "title": "Просмотр сотрудников"
+            }
+        ],
+        "created_at": "31.01.2022 07:41",
+        "updated_at": "31.01.2022 07:41"
+    }
+}

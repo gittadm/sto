@@ -1,0 +1,448 @@
+name: Воронки
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/stages
+    metadata:
+      title: 'Список этапов воронки'
+      description: 'Получение списка этапов по id воронки'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      pipeline_id:
+        name: pipeline_id
+        description: 'ID воронки'
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      pipeline_id:
+        name: pipeline_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"pipeline_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f pipeline id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/stages
+    metadata:
+      title: 'Добавление воронки'
+      description: 'Права: `crud pipelines`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      color:
+        name: color
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      pipeline_id:
+        name: pipeline_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"pipeline_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f pipeline id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/stages/{id}'
+    metadata:
+      title: 'Получение этапа'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the stage.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      stage:
+        name: stage
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"stage":{"id":17,"name":"Corporis modi accusantium ratione.","color":"#c49a3f","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/stages/{id}'
+    metadata:
+      title: 'Обновление этапа'
+      description: 'Права: `crud pipelines`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the stage.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      stage:
+        name: stage
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      color:
+        name: color
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      pipeline_id:
+        name: pipeline_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"pipeline_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f pipeline id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/stages/{id}'
+    metadata:
+      title: 'Удаление этапа'
+      description: 'Права: `crud pipelines`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the stage.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      stage:
+        name: stage
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/pipelines
+    metadata:
+      title: 'Список воронок'
+      description: |-
+        Получение списка воронок с этапами.
+        С помощью дополнительных параметров в url можно указать тип воронки
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      type:
+        name: type
+        description: 'Например, type = `task`'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"pipelines":[{"id":2,"name":"A ea quia quia minus.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":18,"name":"Accusamus nihil quaerat modi et laborum qui.","color":"#81630f","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":2},{"id":19,"name":"Quisquam necessitatibus minima non repudiandae perspiciatis autem cumque.","color":"#73e040","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":2},{"id":20,"name":"Vel dignissimos iusto ut qui illo.","color":"#daa25d","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":2}]},{"id":8,"name":"Aliquid aliquam eos similique.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":68,"name":"Eligendi ut saepe optio dolores.","color":"#e38c67","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":69,"name":"Exercitationem velit minima fuga.","color":"#7832c0","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":70,"name":"Ut delectus sequi suscipit ratione quaerat.","color":"#c16f11","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":71,"name":"Sed vel pariatur recusandae omnis quia.","color":"#f88337","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":72,"name":"Beatae est incidunt facere sed.","color":"#ccc1ea","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":73,"name":"Aliquam adipisci doloribus ratione aut.","color":"#f3074e","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":74,"name":"Laborum fuga impedit voluptas repellat.","color":"#5cdb24","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8},{"id":75,"name":"Nihil quia iste adipisci fuga.","color":"#2d6915","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":8}]},{"id":7,"name":"Aut officiis nemo porro laboriosam.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":64,"name":"Quo quis ut dolorem sed sequi consectetur.","color":"#3ca9d3","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":7},{"id":65,"name":"Eligendi ut aut consequatur id deserunt.","color":"#2f0b75","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":7},{"id":66,"name":"Est ut distinctio eius doloribus commodi deleniti.","color":"#e94377","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":7},{"id":67,"name":"Fugiat iure temporibus eum ut.","color":"#3fc0ca","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":7}]},{"id":1,"name":"Est error quo et laudantium.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":1,"name":"Quas nemo ut culpa aut.","color":"#c66a72","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":2,"name":"Omnis quod temporibus nam explicabo.","color":"#fa85c9","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":3,"name":"Qui ut rem iusto dolore cupiditate eveniet cumque.","color":"#84124e","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":4,"name":"Beatae distinctio aspernatur quo atque aut voluptatibus laboriosam culpa.","color":"#2f09a1","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":5,"name":"Quisquam facilis molestiae voluptate ut dolorem doloribus quidem.","color":"#ca3c3b","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":6,"name":"Quidem sunt molestias molestiae nostrum provident omnis deleniti.","color":"#7f889a","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":7,"name":"Molestias ut sint illo natus suscipit.","color":"#c679d8","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":8,"name":"Quia quis dignissimos dolor ut.","color":"#fc9923","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":9,"name":"Est debitis fuga voluptates dolores magnam repellat.","color":"#37a378","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":10,"name":"Omnis inventore quisquam distinctio eos modi.","color":"#987751","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":11,"name":"Vitae amet sint repudiandae minus.","color":"#472ba3","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":12,"name":"Sunt sunt amet aliquid voluptas omnis quos.","color":"#30389d","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":13,"name":"Delectus ad corporis eum culpa voluptatem.","color":"#b072dc","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":14,"name":"Repellendus quia omnis omnis tenetur.","color":"#8abece","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":15,"name":"Nulla nihil vitae ut aut aliquam iste.","color":"#67e310","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":16,"name":"Nihil aut ratione hic dolorem soluta qui ipsa.","color":"#aa3390","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1},{"id":17,"name":"Corporis modi accusantium ratione.","color":"#c49a3f","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":1}]},{"id":3,"name":"Et eum quibusdam pariatur voluptas rerum laborum.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":21,"name":"Aut eveniet tempore possimus aut placeat quo harum.","color":"#fe9dbd","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":3},{"id":22,"name":"Doloremque est officia aut distinctio autem quo blanditiis.","color":"#051c54","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":3},{"id":23,"name":"Tempora nihil dolore repellendus consequuntur.","color":"#bfbd83","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":3},{"id":24,"name":"Provident excepturi voluptatem et inventore voluptatem et.","color":"#9b0b3c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":3},{"id":25,"name":"Qui consequuntur aperiam id ut nesciunt harum eos.","color":"#0cfe01","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":3}]},{"id":9,"name":"Id accusamus adipisci corrupti.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":76,"name":"Doloremque eos autem neque quidem possimus est eos.","color":"#b79ad9","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":77,"name":"Quaerat numquam aut omnis sit.","color":"#309eaf","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":78,"name":"Officiis facere ab incidunt aut.","color":"#3273b0","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":79,"name":"Ut quas commodi ut accusantium alias optio possimus.","color":"#cc2228","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":80,"name":"Qui sequi qui adipisci vel distinctio similique necessitatibus.","color":"#241d23","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":81,"name":"Sed quae labore qui magnam aut qui.","color":"#a8a02d","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":82,"name":"Laudantium omnis est vitae dolor minus ut est sint.","color":"#c41c64","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":83,"name":"Deleniti consequatur alias aut dolores.","color":"#1345ea","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":84,"name":"Et illo vel laudantium est dignissimos natus error.","color":"#8b3427","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":85,"name":"Repudiandae saepe sunt commodi impedit numquam ut.","color":"#ae1423","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":86,"name":"Rerum similique et provident impedit.","color":"#104c3c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":87,"name":"Sequi quas ullam aut eius vitae vitae ut.","color":"#333fa4","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":88,"name":"Possimus consequatur voluptate blanditiis velit assumenda aliquam commodi.","color":"#52f2c5","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":89,"name":"Qui deleniti culpa vel voluptates.","color":"#698c0d","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":90,"name":"Et accusantium nam ducimus laudantium ea.","color":"#bcde58","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":91,"name":"Error incidunt similique voluptatibus excepturi iusto impedit est.","color":"#57abbf","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9},{"id":92,"name":"Quisquam voluptas magni tenetur qui.","color":"#3027d8","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":9}]},{"id":4,"name":"Odit explicabo eligendi deserunt laboriosam.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":26,"name":"Voluptatem maiores voluptas aliquid quidem esse autem illum optio.","color":"#a0db6c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":27,"name":"Non et sapiente eos.","color":"#6ccc80","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":28,"name":"Eum sunt atque fuga laboriosam ut dolores.","color":"#2369fb","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":29,"name":"Iste dolores sunt quis qui veniam.","color":"#bb29e9","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":30,"name":"Mollitia aliquam ipsa quas odio ut molestiae.","color":"#fd8bc5","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":31,"name":"Minima rerum minus tempore in a quia.","color":"#012d04","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":32,"name":"Omnis velit autem ad odit.","color":"#224bef","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":33,"name":"Velit at et ut est.","color":"#7017a5","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":34,"name":"A vitae consequatur et.","color":"#4d5d3b","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":35,"name":"Soluta aliquam illo inventore quibusdam.","color":"#12d82d","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":36,"name":"Aut consectetur voluptatem perspiciatis sit sunt incidunt debitis.","color":"#3c30e4","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":37,"name":"Impedit mollitia beatae harum laborum sed reiciendis aut excepturi.","color":"#c67f48","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":38,"name":"Numquam sunt qui a sed assumenda amet inventore ut.","color":"#53d476","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":39,"name":"Nam veritatis consequatur dolores est nihil.","color":"#7ce19e","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":40,"name":"Et cumque maiores dignissimos iste.","color":"#47c8c3","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4},{"id":41,"name":"Quia recusandae accusantium quis sunt incidunt maiores et.","color":"#d6e8d6","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":4}]},{"id":10,"name":"Tempora rerum quam temporibus impedit sint aut.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":93,"name":"Ipsa animi aliquid dolores enim perferendis voluptatum corrupti.","color":"#8f1299","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":94,"name":"Est saepe libero quod.","color":"#808985","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":95,"name":"Qui nihil reprehenderit numquam et tempora mollitia quia hic.","color":"#833bb5","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":96,"name":"Accusantium ex corrupti nihil est.","color":"#750c64","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":97,"name":"Officia recusandae animi provident aut quisquam nobis.","color":"#96b510","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":98,"name":"Dicta sed sit ut qui.","color":"#7b623f","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":99,"name":"Nam sint non tenetur perspiciatis et.","color":"#c9b18d","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":100,"name":"Minus pariatur enim saepe optio at occaecati.","color":"#436382","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":101,"name":"Sint rerum cum veritatis esse harum.","color":"#222626","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":102,"name":"Fugiat velit explicabo ex modi aliquid cupiditate.","color":"#19979c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":103,"name":"Consequatur magnam non itaque debitis quis.","color":"#a25dd9","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":104,"name":"Vitae error rerum nihil.","color":"#4615cb","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":105,"name":"Quaerat et quo ab impedit at nesciunt.","color":"#38e295","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10},{"id":106,"name":"Sed nam in maiores et nostrum hic facere.","color":"#bff9c3","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":10}]},{"id":6,"name":"Velit quia molestias aliquam veritatis vel repellendus.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":56,"name":"Asperiores dicta id veritatis voluptas iure saepe.","color":"#4033a8","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":57,"name":"In quis autem alias soluta saepe.","color":"#25b49c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":58,"name":"Aut itaque delectus distinctio similique.","color":"#09de46","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":59,"name":"Officia odio distinctio voluptas quia.","color":"#698e13","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":60,"name":"A rerum et omnis et inventore neque.","color":"#88117a","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":61,"name":"In adipisci quae doloremque tempore qui voluptatem explicabo.","color":"#a2a536","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":62,"name":"Sunt sed architecto consectetur veniam debitis libero in.","color":"#7c4500","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6},{"id":63,"name":"Est ipsa ut mollitia possimus sed.","color":"#9dba2c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":6}]},{"id":5,"name":"Voluptatum facere repellendus et tempore ratione nisi.","type":"task","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","stages":[{"id":42,"name":"Numquam qui debitis numquam blanditiis.","color":"#44659f","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":43,"name":"Velit nemo expedita dolor autem quia et.","color":"#66e692","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":44,"name":"Cum sapiente molestias expedita tempora et aut maxime nemo.","color":"#f707fe","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":45,"name":"Qui sit et deleniti et nesciunt.","color":"#c9ff8e","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":46,"name":"Aut ut aut quasi et et repellat est.","color":"#fdf6fc","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":47,"name":"Consequatur sit temporibus et delectus qui.","color":"#b20009","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":48,"name":"Quo quo et nihil architecto in voluptatibus quo.","color":"#827ce3","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":49,"name":"Eveniet sit reiciendis ipsum excepturi ut impedit eligendi.","color":"#2ad216","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":50,"name":"Eum vero aperiam facere placeat similique.","color":"#30b1d7","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":51,"name":"Harum recusandae aspernatur eius quo dolorum ut est optio.","color":"#5c83e2","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":52,"name":"Aliquid consequatur dolore sequi.","color":"#53c532","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":53,"name":"Possimus sunt error ut ut dolores.","color":"#17027e","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":54,"name":"Nulla est quia sed.","color":"#d9ecce","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5},{"id":55,"name":"Necessitatibus suscipit quam expedita possimus deserunt consequatur.","color":"#24a398","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","pipeline_id":5}]}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/pipelines
+    metadata:
+      title: 'Добавление воронки'
+      description: 'Права: `crud pipelines`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Например, type = `task`'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"type":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f type \u043e\u0448\u0438\u0431\u043e\u0447\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/pipelines/{id}'
+    metadata:
+      title: 'Получение воронки'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the pipeline.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      pipeline:
+        name: pipeline
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Pipeline] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/pipelines/{id}'
+    metadata:
+      title: 'Обновление воронки'
+      description: 'Права: `crud pipelines`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the pipeline.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      pipeline:
+        name: pipeline
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      type:
+        name: type
+        description: 'Например, type = `task`'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"type":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f type \u043e\u0448\u0438\u0431\u043e\u0447\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/pipelines/{id}'
+    metadata:
+      title: 'Удаление воронки'
+      description: |-
+        Права: `crud pipelines`
+
+        Удаление только если нет автомобилей с таким топливом или других связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the pipeline.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      pipeline:
+        name: pipeline
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

@@ -1,0 +1,175 @@
+name: Отделы
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/departments
+    metadata:
+      title: 'Список отделов'
+      description: |-
+        Права: `crud departments`
+
+        Упорядочены по названию (name)
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"departments":[{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"},{"id":4,"name":"labore \/ itaque","slug":"vel-fuga-nesciunt-et-ad-consequatur-quib"},{"id":5,"name":"minus \/ est","slug":"rerum-minus-quia-rerum-dicta-eveniet-qui"},{"id":3,"name":"qui \/ ea","slug":"voluptas-numquam-exercitationem-dolorum-"},{"id":2,"name":"voluptas \/ reiciendis","slug":"rem-qui-mollitia-sunt-nobis"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/departments
+    metadata:
+      title: 'Добавление отдела'
+      description: 'Права: `crud departments`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"department":{"id":7,"name":"consequatur","slug":"consequatur"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/departments/{id}'
+    metadata:
+      title: 'Получение отдела'
+      description: 'Права: `crud departments`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the department.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"department":{"id":1,"name":"aut \/ deserunt","slug":"quas-sequi-iste-possimus-necessitatibus-"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/departments/{id}'
+    metadata:
+      title: 'Обновление отдела'
+      description: 'Права: `crud departments`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the department.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"department":{"id":1,"name":"consequatur","slug":"consequatur"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/departments/{id}'
+    metadata:
+      title: 'Удаление отдела'
+      description: |-
+        Права: `crud departments`
+
+        Soft delete
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the department.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

@@ -1,0 +1,78 @@
+name: Файлы
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/temp/files
+    metadata:
+      title: 'Добавление временных файлов'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      files:
+        name: files
+        description: 'Must be a file.'
+        required: true
+        example:
+          - null
+        type: 'file[]'
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"files":[{"id":24,"original_name":"test.jpg","url":"http:\/\/127.0.0.1:8000\/storage\/temp\/52\/8cplfaqi6oelzxkp.jpg","user_id":2}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/temp/files/delete
+    metadata:
+      title: 'Удаление временных файлов'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      ids:
+        name: ids
+        description: 'array required'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      ids:
+        name: ids
+        description: ''
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

@@ -1,0 +1,165 @@
+name: Профиль
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - PUT
+    uri: api/profile
+    metadata:
+      title: 'Обновление основных данных'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      email:
+        name: email
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      surname:
+        name: surname
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      about:
+        name: about
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      born_at:
+        name: born_at
+        description: 'Дата рождения в формате Y-m-d'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      office_position:
+        name: office_position
+        description: Должность
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      is_about_visible:
+        name: is_about_visible
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+      is_born_at_visible:
+        name: is_born_at_visible
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"email":["\u041f\u043e\u043b\u0435 email \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u043c \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u044b\u043c \u0430\u0434\u0440\u0435\u0441\u043e\u043c."],"born_at":["\u041f\u043e\u043b\u0435 born at \u043d\u0435 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0444\u043e\u0440\u043c\u0430\u0442\u0443 Y-m-d."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/profile/avatar
+    metadata:
+      title: 'Обновление аватара'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      avatar:
+        name: avatar
+        description: 'Изображение, размер не более 10000 Кб'
+        required: true
+        example: null
+        type: file
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"avatar":"http:\/\/127.0.0.1:8000\/storage\/avatars\/49\/yr19kvadeeccn2qp.jpg"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/profile/password
+    metadata:
+      title: 'Обновление пароля'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      password:
+        name: password
+        description: 'Пароль должен содержать не менее 8 символов'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

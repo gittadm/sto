@@ -1,0 +1,181 @@
+name: Города
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/cities
+    metadata:
+      title: 'Список городов'
+      description: |-
+        Упорядочены по названию
+
+        Права: `crud cities`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"cities":[{"id":14,"name":"\u0412\u0438\u0434\u043d\u043e\u0435 3505"},{"id":98,"name":"\u0412\u0438\u0434\u043d\u043e\u0435 4116"},{"id":35,"name":"\u0412\u043e\u043b\u043e\u043a\u043e\u043b\u0430\u043c\u0441\u043a 2461"},{"id":74,"name":"\u0412\u043e\u043b\u043e\u043a\u043e\u043b\u0430\u043c\u0441\u043a 4429"},{"id":50,"name":"\u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a 4593"},{"id":97,"name":"\u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a 602"},{"id":42,"name":"\u0414\u043c\u0438\u0442\u0440\u043e\u0432 2016"},{"id":18,"name":"\u0414\u043c\u0438\u0442\u0440\u043e\u0432 2580"},{"id":43,"name":"\u0414\u043c\u0438\u0442\u0440\u043e\u0432 8926"},{"id":29,"name":"\u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e 4385"},{"id":91,"name":"\u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e 4985"},{"id":3,"name":"\u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e 6892"},{"id":96,"name":"\u0414\u043e\u0440\u043e\u0445\u043e\u0432\u043e 5305"},{"id":40,"name":"\u0414\u043e\u0440\u043e\u0445\u043e\u0432\u043e 5971"},{"id":51,"name":"\u0414\u043e\u0440\u043e\u0445\u043e\u0432\u043e 8722"},{"id":1,"name":"\u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a 4317"},{"id":99,"name":"\u0417\u0430\u0440\u0430\u0439\u0441\u043a 4541"},{"id":21,"name":"\u0417\u0430\u0440\u0430\u0439\u0441\u043a 5656"},{"id":36,"name":"\u0417\u0430\u0440\u0430\u0439\u0441\u043a 6378"},{"id":23,"name":"\u0418\u0441\u0442\u0440\u0430 3511"},{"id":73,"name":"\u0418\u0441\u0442\u0440\u0430 7425"},{"id":7,"name":"\u041a\u0430\u0448\u0438\u0440\u0430 3359"},{"id":28,"name":"\u041a\u0430\u0448\u0438\u0440\u0430 8147"},{"id":39,"name":"\u041a\u0430\u0448\u0438\u0440\u0430 9722"},{"id":77,"name":"\u041a\u043b\u0438\u043d 1114"},{"id":45,"name":"\u041a\u043b\u0438\u043d 2843"},{"id":12,"name":"\u041a\u043b\u0438\u043d 3998"},{"id":61,"name":"\u041a\u043b\u0438\u043d 7641"},{"id":32,"name":"\u041a\u043e\u043b\u043e\u043c\u043d\u0430 4135"},{"id":46,"name":"\u041a\u043e\u043b\u043e\u043c\u043d\u0430 6227"},{"id":72,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a 1062"},{"id":49,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a 4304"},{"id":63,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a 8872"},{"id":64,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a 9640"},{"id":38,"name":"\u041b\u043e\u0442\u043e\u0448\u0438\u043d\u043e 6061"},{"id":60,"name":"\u041b\u043e\u0442\u043e\u0448\u0438\u043d\u043e 9415"},{"id":100,"name":"\u041b\u0443\u0445\u043e\u0432\u0438\u0446\u044b 2222"},{"id":78,"name":"\u041b\u044e\u0431\u0435\u0440\u0446\u044b 3228"},{"id":37,"name":"\u041b\u044e\u0431\u0435\u0440\u0446\u044b 4039"},{"id":84,"name":"\u041b\u044e\u0431\u0435\u0440\u0446\u044b 7625"},{"id":17,"name":"\u041b\u044e\u0431\u0435\u0440\u0446\u044b 9113"},{"id":59,"name":"\u041c\u043e\u0436\u0430\u0439\u0441\u043a 1875"},{"id":92,"name":"\u041c\u043e\u0436\u0430\u0439\u0441\u043a 5560"},{"id":8,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 1117"},{"id":55,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 1118"},{"id":9,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 1723"},{"id":5,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 4058"},{"id":47,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 6342"},{"id":52,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 74"},{"id":44,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 8150"},{"id":11,"name":"\u041c\u044b\u0442\u0438\u0449\u0438 3237"},{"id":24,"name":"\u041c\u044b\u0442\u0438\u0449\u0438 6266"},{"id":54,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 1297"},{"id":67,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 2072"},{"id":19,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 374"},{"id":79,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 3965"},{"id":68,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 8690"},{"id":93,"name":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a 8744"},{"id":4,"name":"\u041d\u043e\u0433\u0438\u043d\u0441\u043a 4187"},{"id":70,"name":"\u041e\u0437\u0451\u0440\u044b 8361"},{"id":2,"name":"\u041e\u0440\u0435\u0445\u043e\u0432\u043e-\u0417\u0443\u0435\u0432\u043e 7175"},{"id":62,"name":"\u041e\u0440\u0435\u0445\u043e\u0432\u043e-\u0417\u0443\u0435\u0432\u043e 8491"},{"id":26,"name":"\u041e\u0440\u0435\u0445\u043e\u0432\u043e-\u0417\u0443\u0435\u0432\u043e 9000"},{"id":66,"name":"\u041f\u0430\u0432\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u041f\u043e\u0441\u0430\u0434 4234"},{"id":41,"name":"\u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a 114"},{"id":31,"name":"\u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a 2509"},{"id":69,"name":"\u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a 6843"},{"id":13,"name":"\u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a 8974"},{"id":71,"name":"\u041f\u0443\u0448\u043a\u0438\u043d\u043e 8686"},{"id":34,"name":"\u0420\u0430\u043c\u0435\u043d\u0441\u043a\u043e\u0435 5115"},{"id":16,"name":"\u0420\u0430\u043c\u0435\u043d\u0441\u043a\u043e\u0435 6793"},{"id":80,"name":"\u0420\u0430\u043c\u0435\u043d\u0441\u043a\u043e\u0435 725"},{"id":81,"name":"\u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434 3513"},{"id":25,"name":"\u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434 8429"},{"id":87,"name":"\u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b 1768"},{"id":75,"name":"\u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b 4129"},{"id":22,"name":"\u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b 6262"},{"id":57,"name":"\u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b 9624"},{"id":48,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 4004"},{"id":6,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 7465"},{"id":10,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 8391"},{"id":76,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 8758"},{"id":95,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 9161"},{"id":20,"name":"\u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0433\u043e\u0440\u0441\u043a 1689"},{"id":89,"name":"\u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0433\u043e\u0440\u0441\u043a 754"},{"id":90,"name":"\u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0433\u043e\u0440\u0441\u043a 9986"},{"id":53,"name":"\u0421\u0442\u0443\u043f\u0438\u043d\u043e 553"},{"id":82,"name":"\u0421\u0442\u0443\u043f\u0438\u043d\u043e 8602"},{"id":27,"name":"\u0422\u0430\u043b\u0434\u043e\u043c 8740"},{"id":15,"name":"\u0427\u0435\u0445\u043e\u0432 109"},{"id":65,"name":"\u0427\u0435\u0445\u043e\u0432 5598"},{"id":30,"name":"\u0427\u0435\u0445\u043e\u0432 8751"},{"id":58,"name":"\u0428\u0430\u0442\u0443\u0440\u0430 7141"},{"id":86,"name":"\u0428\u0430\u0442\u0443\u0440\u0430 7559"},{"id":33,"name":"\u0428\u0430\u0442\u0443\u0440\u0430 9638"},{"id":85,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 1193"},{"id":56,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 3008"},{"id":88,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 4489"},{"id":94,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 4694"},{"id":83,"name":"\u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f 7854"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/cities
+    metadata:
+      title: 'Добавление города'
+      description: |-
+        Название города должно быть уникально
+
+        Права: `crud cities`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"city":{"id":102,"name":"consequatur"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/cities/{id}'
+    metadata:
+      title: 'Получение города'
+      description: 'Права: `crud cities`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the city.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"role":{"id":1,"name":"\u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a 4317"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/cities/{id}'
+    metadata:
+      title: 'Обновление города'
+      description: 'Права: `crud cities`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the city.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"city":{"id":1,"name":"consequatur"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/cities/{id}'
+    metadata:
+      title: 'Удаление города'
+      description: |-
+        Права: `crud cities`
+
+        Удаление только если нет клиента с таким городом
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the city.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Server Error"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

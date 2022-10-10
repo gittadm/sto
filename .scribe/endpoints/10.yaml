@@ -1,0 +1,783 @@
+name: Склады
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/storages
+    metadata:
+      title: 'Список складов'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"storages":[{"id":2,"name":"A-8848","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":55,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 1118"}},{"id":8,"name":"Earum-6108","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":48,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 4004"}},{"id":3,"name":"Et-5790","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":6,"name":"\u0421\u0435\u0440\u043f\u0443\u0445\u043e\u0432 7465"}},{"id":7,"name":"Id-354","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":34,"name":"\u0420\u0430\u043c\u0435\u043d\u0441\u043a\u043e\u0435 5115"}},{"id":5,"name":"Laudantium-3175","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":92,"name":"\u041c\u043e\u0436\u0430\u0439\u0441\u043a 5560"}},{"id":6,"name":"Libero-514","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":1,"name":"\u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a 4317"}},{"id":1,"name":"Sed-3530","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":81,"name":"\u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434 3513"}},{"id":4,"name":"Ut-9869","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":44,"name":"\u041c\u043e\u0441\u043a\u0432\u0430 8150"}},{"id":9,"name":"Veritatis-8048","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":50,"name":"\u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a 4593"}},{"id":10,"name":"Voluptates-6938","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","city":{"id":90,"name":"\u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0433\u043e\u0440\u0441\u043a 9986"}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/storages
+    metadata:
+      title: 'Добавление склада'
+      description: |-
+        Название должно быть уникально
+
+        Права: `crud storages`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      city_id:
+        name: city_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"storage":{"id":12,"name":"consequatur","created_at":"06.02.2022 15:07","updated_at":"06.02.2022 15:07","city":{"id":17,"name":"\u041b\u044e\u0431\u0435\u0440\u0446\u044b 9113"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/storages/{id}'
+    metadata:
+      title: 'Получение склада'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the storage.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      storage:
+        name: storage
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Storage] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/storages/{id}'
+    metadata:
+      title: 'Обновление склада'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the storage.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      storage:
+        name: storage
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      city_id:
+        name: city_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Storage] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/storages/{id}'
+    metadata:
+      title: 'Удаление склада'
+      description: |-
+        Права: `crud storages`
+
+        Удаление только если нет связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the storage.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      storage:
+        name: storage
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/producers
+    metadata:
+      title: 'Список производителей'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"producers":[{"id":5,"name":"Architecto-5924","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":6,"name":"Culpa-6524","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":9,"name":"Exercitationem-1462","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":2,"name":"In-9043","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":8,"name":"Ipsam-7736","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":3,"name":"Maiores-5922","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":7,"name":"Odit-2932","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":1,"name":"Sint-6165","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"},{"id":4,"name":"Voluptatibus-7878","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/producers
+    metadata:
+      title: 'Добавление производителя'
+      description: |-
+        Название должно быть уникально
+
+        Права: `crud storages`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"producer":{"id":12,"name":"consequatur","created_at":"06.02.2022 15:07","updated_at":"06.02.2022 15:07"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/producers/{id}'
+    metadata:
+      title: 'Получение производителя'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the producer.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      producer:
+        name: producer
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Producer] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/producers/{id}'
+    metadata:
+      title: 'Обновление производителя'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the producer.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      producer:
+        name: producer
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Producer] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/producers/{id}'
+    metadata:
+      title: 'Удаление производителя'
+      description: |-
+        Права: `crud storages`
+
+        Удаление только если нет связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the producer.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      producer:
+        name: producer
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/products
+    metadata:
+      title: 'Список товаров'
+      description: |-
+        Получение списка товаров с производителями с пагинацией.
+        С помощью дополнительных параметров в url можно указать фрагмент для поиска по названию, по артикулу,
+        по производителю. Сортировка возможна по дате создания или названию
+
+        Права: `crud storages`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order:
+        name: order
+        description: 'Значения: id, name. Если параметр не указан, то по id desc.'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      name:
+        name: name
+        description: 'Поиск по фрагменту названия'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      sku:
+        name: sku
+        description: 'Поиск по фрагменту артикула'
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      producer_id:
+        name: producer_id
+        description: 'Поиск по id производителя'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"products":[{"id":94,"name":"A","place":"35.1","count":703,"input_sum":115000,"output_sum":222700,"description":"Tenetur ea incidunt corrupti doloremque dolores sed sed veniam. Quibusdam voluptatibus vitae odit rerum eaque velit soluta. Aliquid similique dicta dolorum iusto laudantium ipsam. Et et officia aliquam atque. Cupiditate modi excepturi id laudantium qui qui consequuntur. Inventore non sit tenetur aut. Voluptate natus quam labore repudiandae quas autem nihil non. Nostrum ad suscipit labore ad nobis labore. Sint sint eos vitae ut reiciendis. Cupiditate excepturi exercitationem repellat. Non non voluptatem pariatur officia. Facilis omnis aut pariatur omnis placeat voluptates dolor. Laboriosam ratione eius ex aut sed temporibus at. Consequatur possimus sed sint quam ullam atque et. Delectus velit reiciendis cumque et ea ut. Harum commodi ratione quia aspernatur molestias est velit maiores. Sed quos omnis necessitatibus adipisci qui voluptatem. Nulla explicabo quibusdam ut sit non accusantium. Accusamus molestiae corporis ea quam dignissimos illo corporis rerum. Voluptas ea quo atque quo error sed.","photo":null,"sku":"e6bbbe47-9fa8-320c-8535-d99b637eb7ec","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":4,"name":"Voluptatibus-7878","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":61,"name":"Ab","place":"80.5","count":244,"input_sum":125100,"output_sum":234000,"description":"Officia animi pariatur vero debitis. Architecto totam aliquam cumque amet laborum nihil. Doloribus vitae atque id totam. Recusandae provident dignissimos est voluptatibus distinctio. Similique est sequi tempore suscipit velit eum sit ut. Sed optio quos quasi officia. Laboriosam corrupti est itaque rerum pariatur ut. Recusandae quia accusantium cum corporis reiciendis. Et distinctio atque eligendi provident. Molestias distinctio ad enim ducimus. Ea qui esse odio dolore. Consectetur odit similique reprehenderit corporis. Possimus quis corporis ratione porro. Sed voluptate reiciendis blanditiis ea ut maiores. Facilis voluptates unde neque cupiditate rem quidem. Tenetur maiores ut consequatur sapiente. Non ut rerum repellat autem quod libero consequatur. Id est sint asperiores sed perspiciatis est itaque. Vel magnam ipsum sed. Aut enim velit ratione vel unde.","photo":null,"sku":"bfbf6314-fcb2-359a-a180-b00f3c5762ce","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":3,"name":"Maiores-5922","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":66,"name":"Accusantium","place":"36.9","count":357,"input_sum":107700,"output_sum":202100,"description":"Pariatur quam repellendus neque ipsum ut. Vel sapiente natus eligendi omnis maiores. Ut iste ullam atque qui recusandae. Quis est aut architecto sed temporibus. Qui totam sed nesciunt ea porro rerum velit ullam. Quo ducimus sapiente nihil id iste minima. Illum voluptatibus est voluptas aliquid commodi eveniet. Mollitia in ab vel accusantium. Et voluptates eos voluptatum repellat reiciendis accusamus. Exercitationem adipisci eum minima dolorum et non. Commodi blanditiis velit velit aut sunt corrupti explicabo in. Dignissimos rerum modi nihil autem dignissimos aliquid consequatur. Vel placeat fuga dolores a. Qui omnis aut placeat ea pariatur libero aperiam. Quibusdam sit at non doloremque beatae distinctio. Eos id id aliquid occaecati. Illum quam corrupti ea dolor et vel et. Ut assumenda sed nostrum quaerat reiciendis explicabo ducimus. Maxime labore ipsa sit eum omnis. Aut ducimus eligendi vitae voluptatem.","photo":null,"sku":"520b3ada-a0af-31d8-9bdd-ddac2fbad83c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":7,"name":"Odit-2932","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":33,"name":"Amet","place":"6.4","count":717,"input_sum":118600,"output_sum":220900,"description":"Modi atque deserunt harum nesciunt. Enim pariatur eius animi et provident ipsam qui. Vel quo et fugiat necessitatibus voluptatem consequatur. Asperiores quisquam ad in enim qui qui. Laborum eum itaque libero exercitationem necessitatibus ut labore reprehenderit. Qui similique cupiditate id cupiditate fugit omnis ut. Ad ipsam quo iste cupiditate omnis et. Unde modi est dicta quo non nam officia. Corrupti error inventore est et perspiciatis fugiat rerum sit. Omnis sit quam ut consequatur. Consequuntur at iste eius amet non cum quaerat voluptate. Suscipit modi et sapiente molestiae aut inventore sapiente. Ut aspernatur ipsam vel autem cupiditate. Qui soluta vero ipsa non. Odit a iusto praesentium amet quasi. Porro quae magnam sit neque mollitia vel aut eaque. Qui atque facilis beatae illo illo modi recusandae fugit. Sed suscipit odio vitae deserunt voluptatem animi. Et fugiat deserunt deleniti placeat neque non quia. Recusandae sapiente ad aut nulla sint molestiae unde.","photo":null,"sku":null,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":2,"name":"In-9043","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":63,"name":"Amet","place":"22.6","count":300,"input_sum":178300,"output_sum":215700,"description":"Dignissimos officia est impedit molestiae vel quod rerum. Iste voluptatem quis et in aut. Blanditiis optio eaque architecto dolor consequatur quis velit blanditiis. Velit eius non repellat aut quam quis qui. Quam mollitia dolor maxime cum atque doloremque cumque. Autem commodi cum ut quo autem. Occaecati ea ipsa esse quisquam nemo. Non suscipit blanditiis voluptatibus et aspernatur. Autem ipsam qui iusto quae. Similique quia et ratione et voluptates repellendus. Dolore consectetur autem omnis molestiae at aut. Quam officia harum aut cumque error fugiat. Voluptate aut amet quod aut sint. Consequatur et illum rerum quaerat neque. Impedit aspernatur sequi veritatis. Voluptas ullam ut voluptatem et sed. Praesentium autem soluta et modi. Possimus dolore suscipit sed voluptatibus. Sit esse recusandae nostrum saepe voluptatibus dolorem tempore. Assumenda beatae minus et facere repudiandae suscipit.","photo":null,"sku":"7449886c-8831-3612-9403-1386827c79b3","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":3,"name":"Maiores-5922","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":54,"name":"Asperiores","place":"85.4","count":199,"input_sum":109400,"output_sum":245300,"description":"Molestias officia perspiciatis ipsa asperiores non enim. Eos adipisci enim officia. Ex praesentium non id porro iure. Libero nostrum eaque quo doloremque esse dolores ut. Aut perspiciatis qui praesentium itaque assumenda. Unde et sit quos nesciunt fugit veritatis doloremque repellat. In iusto excepturi nostrum dolorum atque quo. Ab sint unde qui incidunt beatae quibusdam. Eum ducimus alias facere quia. Cumque et voluptatem voluptates est et sunt quae vero. Animi facilis iste sit accusamus dicta dolorum. Repudiandae rerum nihil eos iusto sunt quo. Porro consequuntur eveniet quia fugit aut molestias nam. Eligendi et nostrum quis similique. Ratione aut eum aperiam similique et suscipit totam sit. Quia laborum nostrum minima aspernatur. Ipsa eius nulla voluptas aut. Ut quas doloribus sequi laborum. Rerum illo nemo qui et explicabo. Blanditiis perspiciatis quas facere et modi.","photo":null,"sku":"133e4ebc-66c3-3eeb-9d6b-6eaaa30f4c6e","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":3,"name":"Maiores-5922","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":72,"name":"Aspernatur","place":null,"count":140,"input_sum":175400,"output_sum":244300,"description":"Et quis quasi sed cumque. Sapiente commodi quam rerum doloremque sit enim explicabo. Minus quo dolorem quo tenetur. Harum voluptatem nobis eum quas quod voluptate natus. Est modi et vel qui est ullam. Quam commodi ut porro molestiae voluptas ab facere. Cum quos sequi ratione necessitatibus at suscipit dolor. Sit sit minus aut voluptas sed et porro. Repellat aspernatur eos qui exercitationem quos reiciendis voluptatem. Eligendi error minus ut eum doloribus. Debitis magni commodi aut rem ea. Recusandae error possimus aut sit qui maxime ea enim. Tenetur quae nulla ut molestiae doloremque autem. Ea eius id sint et officiis ducimus. Aspernatur odio iste perspiciatis ea vel eius quod. Molestiae sit maiores sit ut velit. Non eos eum quia quia eum est est. Ad magni sed quisquam et illo quia occaecati possimus. Quae delectus quaerat minus sint atque rerum. Aut nihil soluta sit deserunt eos eos.","photo":null,"sku":"38437102-33dd-3634-80f7-533df5abe796","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":83,"name":"Aspernatur","place":"34.2","count":872,"input_sum":139100,"output_sum":234000,"description":"Hic et est ex similique laboriosam. Sequi placeat corrupti perspiciatis nam quia nostrum est. Fugiat non fugiat voluptas ipsa animi. Ad a asperiores ratione recusandae recusandae voluptatem illum. Rerum aperiam omnis mollitia consectetur occaecati quia. Fugit quia ad quia repellendus neque. Molestiae vero qui quia sapiente ad harum laboriosam. Qui id iure odit similique optio. Officia illum aut corrupti omnis repellendus. Inventore reiciendis illo id eveniet ratione soluta. Eum ut sit nihil vel eum eos ab. Voluptas praesentium recusandae magnam eos ut fugiat. Autem quia reiciendis aliquid similique ut. Consequuntur sunt iure numquam totam quo. Sequi itaque quaerat molestiae. Eos sed inventore voluptas doloremque distinctio. Eos sit et qui ut dolore voluptas voluptatibus officia. Quae maxime nulla ut eum quaerat alias modi accusamus. Reprehenderit laboriosam libero vitae et. Totam cumque perspiciatis error eos neque delectus.","photo":null,"sku":"782dc324-2898-3134-afcc-08f56cd7b4a1","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":99,"name":"Atque","place":null,"count":773,"input_sum":161600,"output_sum":210700,"description":"Sint eligendi magni fuga incidunt cum vitae. Dolor esse quaerat ut excepturi. Illum dolores quaerat nobis sapiente distinctio quae. Quia alias enim quam deleniti. Aut suscipit modi dolor exercitationem sunt vel. Est consequatur ut exercitationem expedita voluptatum eum excepturi. Qui aperiam et et consequuntur impedit omnis. Veritatis libero ut consectetur quo facere hic et. Itaque incidunt numquam delectus. Facere repellendus maxime explicabo laborum. Repellendus ducimus provident temporibus ullam nobis. Reprehenderit quis vel sequi quam quod tempora quis. Velit repellat omnis est quasi illum odit nemo aut. Accusamus minima perspiciatis pariatur illum expedita non reprehenderit. Sit velit ut quod tempora. Mollitia nam ut inventore voluptatem. Quisquam qui odit aut possimus saepe. Ea minima est error odio et alias. Sit quis harum consequuntur minima delectus consectetur neque. Tempore consequuntur voluptate nam assumenda.","photo":null,"sku":"16f916ab-243f-3b5e-a8a3-b524f8459500","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":4,"name":"Voluptatibus-7878","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":17,"name":"Atque","place":"80.1","count":307,"input_sum":133500,"output_sum":220100,"description":"Dolorum recusandae omnis perspiciatis fuga. Veniam aut modi in perspiciatis est dicta id. Voluptates et qui corrupti. Sed error aut aut soluta sit culpa. Beatae est et et mollitia. Voluptas necessitatibus fuga et dolorem aut est qui. Temporibus iste consequatur consequatur delectus totam sint. Deserunt deleniti ex quam. Odit officiis sed ipsum porro. Voluptatibus laborum ut eius dolor repudiandae occaecati autem. Ducimus aut illum minima possimus. Ut ipsa voluptatem doloribus molestiae. Dolor eaque beatae eum pariatur itaque voluptas qui. Consequatur ducimus quidem error est aut. Dolore aliquam voluptas in error animi. Id incidunt consectetur ab maiores. Officiis molestiae magni in dolor aut atque ratione qui. Ad beatae officiis dignissimos id illo libero perferendis ut. Velit iure et culpa. Sint architecto iusto dolorem culpa enim.","photo":null,"sku":"8284b4ff-6054-36b5-9797-8e4d9f84a207","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":6,"name":"Culpa-6524","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":96,"name":"Aut","place":"20.4","count":91,"input_sum":107200,"output_sum":215200,"description":"Sed eos eos quas reiciendis nihil unde veniam. Distinctio omnis voluptate dolores amet corporis. Harum voluptas nesciunt sint error et ducimus. Provident quas recusandae deserunt distinctio omnis esse velit rem. Sunt velit beatae in dignissimos ut nemo. Et et sed dolor maxime. Quam inventore iure amet aut quam blanditiis. Corporis enim esse sed hic et qui laudantium. Laudantium repellendus vitae nihil voluptatem enim tempora quasi. Voluptatem iusto vero asperiores ipsam consequuntur dolorum. Sit est voluptatem at. Illo minima rem odit quaerat. Sunt sit sed officia repellendus aspernatur ab. Corrupti accusantium possimus nobis qui sequi magnam fugiat necessitatibus. Dolor fugiat ut itaque quibusdam pariatur qui. Deserunt et doloribus aut dolorem perferendis nisi qui quae. Cupiditate ipsam ut molestiae ea nulla. Eos commodi corrupti numquam rerum eius. Fugiat ducimus sit sapiente quis. Rerum tenetur perspiciatis quidem sit nam dignissimos tenetur quod.","photo":null,"sku":"2f4c6fac-9310-3a94-a8ae-c6cf187b9a12","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":4,"name":"Voluptatibus-7878","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":76,"name":"Aut","place":"2.3","count":384,"input_sum":192600,"output_sum":218900,"description":"Ullam ut a pariatur rerum. Aspernatur sit aut tempore nobis porro magni dolorem. Nihil sint est autem beatae vel. Assumenda aut vitae ea ut illum quia aperiam. Nemo ea doloremque eum quia. Et nesciunt repellat nesciunt qui quia. Pariatur quia doloribus quidem maiores et suscipit in. Similique sint et rerum expedita vel voluptatem ut suscipit. Ea doloribus aperiam cupiditate rerum. Accusantium odio officiis sequi omnis autem repellendus autem. Dignissimos deleniti enim odit architecto qui rerum. Ut debitis est ut voluptas nihil illo rem. Commodi perferendis deserunt voluptas quaerat sit. Et error harum soluta et dolores ex. Dolorem aperiam sint reiciendis et facere. Laborum et tempore autem unde ratione libero debitis. Aperiam aut adipisci ex minima expedita. Sit asperiores eum repellendus repudiandae. Reprehenderit eos deleniti ratione libero doloribus. Eligendi sed doloremque neque tempora eos quia cupiditate.","photo":null,"sku":null,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":103,"name":"Aut","place":"55.2","count":130,"input_sum":155200,"output_sum":238800,"description":"Non commodi vitae ratione facilis aliquid. Harum illum est quis eveniet. Et id sed doloremque. Atque in nostrum quo. Quia explicabo corrupti reprehenderit molestiae nisi suscipit in voluptas. Aut praesentium et placeat corrupti. Consequatur sed et accusamus perspiciatis placeat modi quo. Ratione culpa provident ut officia omnis. Nemo quia soluta quo aliquam. Corporis nostrum exercitationem non nobis. Asperiores aut aliquam quia dolorem inventore rem dolore. Ut quasi deleniti temporibus. Ut aut fugit consectetur. Repudiandae non autem rem sequi vitae. Ut illum animi et. Culpa enim quis qui error neque nihil et. Vel fugiat praesentium cum dicta voluptas. Hic porro sequi consequatur delectus. Reprehenderit recusandae qui at. Ut optio et reiciendis repellendus in et voluptates quas.","photo":null,"sku":"6679d526-083f-3dc7-9db8-8e6b951a1b1f","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":4,"name":"Voluptatibus-7878","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":10,"name":"Aut","place":"13.4","count":212,"input_sum":150200,"output_sum":231600,"description":"Qui et magnam aperiam ea. Non ullam deserunt et eos. Numquam quibusdam vel autem tempore. Tempora beatae vel nisi aut sequi. Adipisci quam rerum qui amet. Tempora quo sed nam qui. Et sed quidem animi et nihil. Aspernatur voluptas et ducimus quasi fugiat numquam. Quibusdam nulla velit provident quis aut. Possimus earum ut ut delectus animi. Eos ut dignissimos dolorum dolores. Et sint debitis quo fugiat distinctio quidem. Cum velit molestiae magnam eum aspernatur nam est ea. Quam rerum nostrum quia assumenda vero quo. Voluptatem maxime magnam mollitia accusantium nesciunt. Voluptas voluptatibus doloribus vitae asperiores. Tempora impedit consequatur corrupti. Tenetur quia deleniti fugiat. Rem voluptas ea rem quidem eos omnis nobis. Et fugiat dolorem dolor.","photo":null,"sku":"d041295e-3467-395f-96f5-9d19261e4f54","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":5,"name":"Architecto-5924","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":38,"name":"Aut","place":"29.4","count":44,"input_sum":151700,"output_sum":209000,"description":"Quas a omnis explicabo ipsum vel corporis. Aliquam itaque dolor quasi beatae quia ratione minus molestias. Distinctio in qui non illum. Dolorem ut minima ut quidem. Aut aut velit officia est officiis voluptas dolorem. Est perspiciatis veritatis nulla est eum excepturi mollitia eveniet. Doloribus incidunt et iste laudantium. Laborum sit autem consectetur officia iure nisi. Hic pariatur asperiores porro error sed qui. Quidem autem ipsa quasi voluptatibus dolor eligendi ut. Explicabo vel est consequatur reprehenderit soluta. Ipsa dolor nesciunt eos rerum quod. Et exercitationem tempora vero dolore est. Dolor repellat quia voluptatem. Eaque rerum blanditiis velit in velit. Labore vero illo dicta quis similique quasi quidem unde. Repudiandae mollitia quasi aperiam est omnis aspernatur. Ex consectetur quae autem voluptatibus ut sunt porro. Natus quo et aut numquam sit veniam. Aut aliquid facilis id quasi aliquam tempore.","photo":null,"sku":"99dc313b-7d77-3f15-bb8c-abd640771e09","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":2,"name":"In-9043","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":74,"name":"Aut","place":"33.5","count":541,"input_sum":105300,"output_sum":200600,"description":"Quae modi nulla adipisci necessitatibus. Tenetur et maiores ea ullam. Libero eum nemo ipsam aut est natus. Facere consectetur asperiores aut eligendi ut iure dolore. Veniam quibusdam unde perspiciatis non debitis perferendis. Et voluptatibus iusto possimus voluptatem. Magni ratione inventore perferendis consequuntur consequatur impedit. Voluptatem libero et porro consequuntur reprehenderit fugiat optio. Quia minus ut sit reprehenderit quidem doloremque consectetur. Aut consectetur placeat autem ipsa inventore. Minima quod voluptatem ex sapiente. Dolores dicta voluptatibus dolor voluptatum beatae. Facere et suscipit atque adipisci. Saepe soluta earum eum quam esse qui assumenda ipsum. Voluptatibus qui eos hic doloribus dolores. Incidunt et dolores quisquam debitis minima. Aut autem voluptas dolorum accusantium ut nulla. Qui autem sint voluptas earum. Id neque laborum voluptatem excepturi eaque. In veniam ut nihil nihil nam quia enim vel.","photo":null,"sku":"af0dc2a1-60d1-3f1f-8ea5-3dcb81d143a8","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":73,"name":"Corporis","place":null,"count":11,"input_sum":195300,"output_sum":233400,"description":"Ea dolore sequi quis sit. Maxime esse nam libero corporis nihil delectus nobis. Minima vero deserunt excepturi et quia laboriosam rerum. Occaecati eum itaque quia sed iure. Aut architecto et ab accusamus sunt. Rerum eius consequatur ut. Tempora maiores sunt est voluptates nostrum quae eos. Quas quaerat amet perferendis dolor totam dolores. Aut corporis aut labore in pariatur voluptatem. Sit dolorum velit vero rerum et et. Voluptate quo assumenda sed qui qui optio. Reprehenderit et dignissimos pariatur. Et dolor eius iure nemo dolorem sed quod nam. Iste libero enim tempora ab dolor in. Vero delectus alias minima odit aut a. Expedita maiores excepturi eum quo reiciendis expedita. Sunt minima sunt odio et tempore sed atque molestiae. Error temporibus dolorem doloremque dolores necessitatibus vero voluptatem tenetur. Voluptatibus vel perferendis deleniti nihil expedita unde. Doloremque quidem facilis maiores odio necessitatibus.","photo":null,"sku":"79520661-7fe3-38ea-ac0c-4236542255de","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":1,"name":"Culpa","place":"15.9","count":765,"input_sum":122300,"output_sum":202200,"description":"Quae ea eos non numquam temporibus enim recusandae. Architecto voluptates quia perspiciatis laboriosam. Eum iusto vel consectetur magnam magni eum. Dolores maiores ratione mollitia maiores. Asperiores voluptates ratione voluptatem et et. Ut molestiae ab sed. Consequuntur illo molestiae eaque commodi tempora. Officia non reiciendis maxime officia sit qui quisquam. Nisi est magnam qui veniam quam et. Similique omnis fugit asperiores voluptatum cum nemo. Nulla qui ea nemo rerum nulla. Suscipit veniam deleniti libero non. Impedit maiores omnis non earum veritatis ut. Nisi nihil laboriosam autem sint laudantium in nihil rerum. Temporibus laudantium iste perspiciatis sit veniam maiores nemo. Et aut autem veritatis vero ratione consequatur. Cum quidem iure earum optio soluta. Laudantium aliquam accusantium est eligendi corporis ea omnis at. Alias placeat ratione omnis excepturi dolor dolores quidem suscipit. Non vero veniam saepe sed temporibus doloribus alias.","photo":"http:\/\/127.0.0.1:8000\/storage\/products\/34\/tpbk6h0ag6ojkdtz.png","sku":"139bbf28-7e83-396f-81eb-8479a4d017d8","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":5,"name":"Architecto-5924","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":75,"name":"Cupiditate","place":"20.4","count":205,"input_sum":127300,"output_sum":236100,"description":"Aperiam cumque excepturi et rerum non. Autem facere consequuntur eos adipisci. Distinctio esse asperiores maxime iusto eum nihil eaque. Delectus maxime est quam vel nisi quidem nihil qui. Fugit non nihil animi. Non qui molestias corporis nulla eum. Ex neque blanditiis repellat perferendis rerum quae ut. Quam dolores vel sed quo animi. Consectetur et tempore eaque. Eligendi omnis harum eum ut omnis delectus ipsum exercitationem. Quidem aut necessitatibus eius. Non maxime fuga aperiam. Perspiciatis magni eius optio provident minima aspernatur. Excepturi id eos sed laborum enim exercitationem. Eligendi sed voluptatem impedit in minus perspiciatis doloribus sit. Odio totam nihil odit ad consequatur. Officiis alias corporis eveniet rerum. Quos ratione id quod dignissimos tenetur pariatur. Cum sed omnis deleniti corporis. Repellat ipsam sunt iusto occaecati.","photo":null,"sku":"87082807-117e-37e5-be25-004db95c6318","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":58,"name":"Delectus","place":null,"count":615,"input_sum":158400,"output_sum":238900,"description":"Ut quisquam ratione omnis voluptatibus esse dolor veritatis nostrum. Et nam consequuntur recusandae voluptates. Voluptas natus ex velit hic. Explicabo recusandae culpa quasi necessitatibus nihil voluptatem vel. Hic tenetur eius numquam unde. Vitae voluptas nihil omnis expedita. Rerum magnam vitae error at ea. Vero soluta culpa consequuntur voluptate harum et unde repudiandae. Molestiae tempora cupiditate fugiat porro quo. Et ut et dolore aut. Vitae est quasi voluptas nemo reiciendis. Aperiam deserunt aspernatur beatae nihil autem. Odit voluptatibus sit unde nemo eveniet vel ut. Magnam et vel sit expedita temporibus. Ea aut in ea reiciendis facere. Esse dolore et repellat quo rerum amet vel. Molestias aspernatur eos dolores dolores vel nihil. Et ut et voluptates officiis quis sed. Laborum voluptas laborum maiores deserunt et odio. Ad incidunt at voluptas aliquam.","photo":null,"sku":"5bc4d633-cdb8-32df-a77b-e597f1e27aad","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":3,"name":"Maiores-5922","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":78,"name":"Distinctio","place":"84.2","count":963,"input_sum":126000,"output_sum":241600,"description":"Soluta eaque dolor incidunt sit est ab autem autem. Voluptatem tempora id est molestias. Quaerat suscipit et quas pariatur. Illum quo temporibus praesentium. Eligendi distinctio est iusto error molestiae et maiores. Consequatur perferendis sunt accusantium natus consequatur. Qui vero nostrum blanditiis soluta eos officiis. Rerum harum quisquam veniam. Et et at laboriosam reiciendis et enim iste. In nam ipsa omnis sed quam. Eos placeat labore maiores sint animi impedit. Quis atque itaque et id. Et velit adipisci non ut molestias quae. Veniam rerum voluptatem voluptates nisi eaque. Incidunt ut consectetur optio. Qui a ab sunt rerum itaque modi fuga. Voluptates sint id molestias minima eum ea reiciendis. Rerum saepe consectetur voluptates voluptas. Tempora nemo aut in ut est ut doloribus. Animi ex odit quod praesentium.","photo":null,"sku":"c78abced-8327-3b35-b6b0-4937fd60d707","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":10,"name":"Qui-4746","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":11,"name":"Dolore","place":"89.9","count":22,"input_sum":102400,"output_sum":213400,"description":"Numquam iste nemo ratione soluta quos provident. Tempora repudiandae ratione ut amet beatae recusandae animi. Reprehenderit natus assumenda ut ut illo. Deserunt doloremque occaecati corporis facere laborum asperiores earum ex. Vitae enim adipisci incidunt vero qui perspiciatis deleniti. Labore maxime molestias temporibus dolorum. Sit sit soluta dolorum quidem soluta fugit reiciendis. Suscipit quia dolores dolor quia natus sint voluptas quo. Mollitia voluptatem necessitatibus eos quisquam cupiditate et. Voluptates rerum vel consequatur et beatae officiis possimus. Cupiditate minima quos adipisci aut et commodi. Pariatur et est sit et. Animi voluptatem veritatis excepturi quis ut aperiam. In perferendis et dolorum dicta maiores nostrum. Nemo cumque rem libero accusamus iusto vero voluptatem. Omnis corrupti sint repudiandae occaecati quisquam nisi quasi. Sint labore harum ut rerum et unde in. Harum expedita non et enim. Harum commodi eius rem qui. Atque velit voluptatem ut animi explicabo nihil animi.","photo":null,"sku":"ea309272-8ece-3dba-a6e8-e005f2170930","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":5,"name":"Architecto-5924","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":3,"name":"Dolorem","place":"44.5","count":977,"input_sum":157000,"output_sum":217500,"description":"Iusto sunt in enim facere unde. Deserunt molestiae quae asperiores aut. Ex aut sit nesciunt. Doloremque sunt adipisci non. Sunt voluptates voluptas ducimus quia totam esse sequi. Non vel in nostrum. Nemo et animi voluptatum delectus iusto. Aut eaque deleniti placeat consequatur modi animi at vel. Cupiditate id reprehenderit ipsum sed. Dolor ex fugit rerum voluptates accusantium. Nihil ex est sed laudantium eos magnam nulla reiciendis. Aut natus quo atque. Consequuntur sequi velit nesciunt quis. At suscipit quidem sunt iure sit autem. Dignissimos facilis quia delectus enim quas magni. Laborum aliquam unde tempore ab sapiente dolores inventore. Sit fuga perferendis quibusdam. Maxime sed enim eligendi vel doloremque. Soluta qui facere illum vel tenetur sapiente consequatur. Veniam dolor modi illo necessitatibus autem aut iusto.","photo":null,"sku":"fdd437bb-80a5-33d8-80cb-8bddac864399","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":5,"name":"Architecto-5924","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":68,"name":"Doloremque","place":"11.6","count":463,"input_sum":182300,"output_sum":226800,"description":"Ut qui aspernatur est dicta est error. Est fugiat praesentium et vel sunt. Incidunt hic ut facere non aspernatur qui quasi recusandae. Qui dolorem quo nemo corporis a consequatur atque voluptates. Earum qui doloribus delectus repellat. Nisi sint temporibus nesciunt nostrum. Facilis est impedit delectus ipsam exercitationem vel nam temporibus. Reprehenderit aut consequuntur quia sequi iusto minus debitis. Officiis aut amet laboriosam impedit. Dolorem consequuntur et esse quasi tempore. Quo facere quo molestiae ut cum dolor. Maxime recusandae doloremque voluptas rerum delectus corrupti. Enim quam non velit temporibus est neque sed impedit. Debitis in qui necessitatibus et fugit tenetur. Officia blanditiis assumenda accusantium. Voluptas accusantium id quia reiciendis. Dolores laudantium aperiam aperiam et pariatur veritatis ea et. Qui ut ut pariatur necessitatibus dolorem. Qui culpa minima ullam quis reprehenderit. Tempore et in perspiciatis inventore quos architecto.","photo":null,"sku":"ac6f1839-0d44-3249-9aa9-67d34419755a","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":7,"name":"Odit-2932","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":22,"name":"Dolores","place":"21.7","count":691,"input_sum":197400,"output_sum":221100,"description":"Quasi quo velit maiores neque occaecati. A molestiae distinctio doloribus. Distinctio nisi qui vel consequatur tenetur. Amet et ex laborum dolorem fugiat necessitatibus voluptatem. Et cum aperiam nostrum soluta. Deleniti ut eum dolores delectus consequatur. Qui est laboriosam nostrum exercitationem et. Laboriosam temporibus animi commodi amet placeat corrupti provident. Et quo nihil aliquam in magnam quo et consectetur. A neque omnis quia rerum iusto. Voluptas omnis voluptatem vero laudantium doloremque sequi labore. Animi aut et laborum eos maxime. Eaque iusto et aut sequi. Consequuntur ipsum occaecati voluptate ut explicabo assumenda. Sed deserunt aut sint consequatur. Quia reiciendis magni repudiandae fugiat provident nemo ut. Est a non distinctio. Inventore et nobis suscipit ipsam magni. Ut aut dignissimos incidunt dolorum. Rerum qui rerum excepturi alias quaerat ut natus.","photo":null,"sku":"43e3d1b4-3e30-3a1f-ae16-93efad78254c","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":6,"name":"Culpa-6524","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":91,"name":"Ducimus","place":"63.4","count":27,"input_sum":132300,"output_sum":204100,"description":"Qui id voluptatem autem molestiae. Iure omnis autem nostrum illum aut soluta quam. Et quia cumque quam voluptas et. Quasi quis eligendi nesciunt fugit tempore voluptas. Quia eum vitae earum. Recusandae non delectus itaque quibusdam vitae doloribus incidunt. Iusto sunt qui architecto iure. Saepe cumque vitae quam et. Qui laboriosam et laboriosam quo doloribus harum at. Officiis quia quidem et perferendis. Dignissimos maxime sit tempore et est. Reiciendis aspernatur delectus et reprehenderit placeat corporis. Quos quia reprehenderit qui quidem dolor. Neque asperiores quibusdam doloribus. Nostrum est tempora dolorum autem doloribus adipisci minima. Odit expedita qui ea dolorem sunt. Vel omnis harum possimus facere fugit qui. Delectus animi corrupti non error. Repudiandae aut quis inventore amet. Corporis laborum facere sit iusto in molestiae.","photo":null,"sku":"a2ba9051-4934-3d94-b123-d46dc5cab234","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":1,"name":"Sint-6165","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":35,"name":"Eius","place":"78.9","count":613,"input_sum":182400,"output_sum":241900,"description":"Qui vitae possimus quibusdam eveniet saepe et rem nisi. In id ipsam nemo laboriosam. Possimus reprehenderit necessitatibus corporis ab quae aperiam ullam et. Omnis ex sed ratione qui molestias. Quasi voluptatem id error molestiae vitae commodi quia. Modi eveniet minima dignissimos molestias molestiae veritatis. Est quia dolores molestias mollitia ullam. Rem molestias nostrum esse facilis praesentium. Officiis animi eaque in iure amet. Labore minima maiores corrupti rerum sequi. Et sit et earum alias. Est nulla necessitatibus rerum voluptas. Placeat dolorem assumenda voluptatem perferendis. Officia doloribus qui cum sint. Reprehenderit et molestiae sint optio. Ut tenetur dolores suscipit eum. Quo ipsa a ut sed blanditiis ducimus. Est adipisci error eaque. In fugiat animi voluptatibus modi. Deleniti consequatur deleniti ducimus aut.","photo":null,"sku":"fa967aa2-8b33-3e4f-886d-fe3718d165eb","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":2,"name":"In-9043","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":49,"name":"Eligendi","place":"59.4","count":342,"input_sum":158500,"output_sum":229800,"description":"Ab vel rerum saepe molestias quo. Eum voluptas excepturi nobis enim libero tempora ipsam. Culpa veritatis nam rerum. Maxime excepturi hic ut et. Possimus ratione incidunt sed velit inventore iure. Quisquam quisquam enim voluptatum molestiae. Itaque ut fugit ad a ut dolorem. Non voluptas eaque nemo aliquam ut voluptate et impedit. Aliquam et consequatur aspernatur et eaque. Id quibusdam voluptates voluptas id. Nihil atque sint quam temporibus aut minus dolorum aut. Dolores esse id qui et et. Non sunt rerum laborum necessitatibus ipsa est assumenda. Dignissimos voluptas molestiae natus omnis similique facere. Sapiente facilis illum sed unde dolor ea. Laborum repudiandae aperiam qui quia quisquam numquam maxime. Non pariatur eligendi nostrum sunt ab beatae rem. Ut molestiae libero mollitia soluta est. Enim sint labore quia consequatur. Neque provident autem odit consectetur.","photo":null,"sku":"5e30b08f-d84d-391b-bc40-a3737512b2ad","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":3,"name":"Maiores-5922","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":12,"name":"Enim","place":"56.8","count":691,"input_sum":164100,"output_sum":210800,"description":"Libero reiciendis ab sunt sapiente non. Cum unde mollitia itaque cum quis. Aliquid architecto assumenda debitis quibusdam tempora laborum. Dolores eos voluptatem voluptas ut quae praesentium ut. Aspernatur quibusdam reiciendis totam aperiam. Quia veniam quidem est ut. Veniam omnis non modi sed et. Exercitationem maxime autem incidunt recusandae sed consequuntur. Beatae maiores quam eos quam officiis fugiat nam soluta. Et est temporibus mollitia. Suscipit eligendi illum itaque provident voluptatem delectus soluta. Vero aspernatur sapiente officiis velit in numquam facilis. Neque ut nesciunt id repudiandae officia quam eligendi. Placeat eos reiciendis alias sint. Quia officiis ullam animi et esse. Ipsa ad necessitatibus similique est laboriosam. Expedita temporibus eos mollitia numquam beatae voluptates. Modi ut sed possimus et cupiditate dolor. Commodi sint non aut ut nihil. Facilis sit deserunt tempore est aut.","photo":null,"sku":"f2788c5e-6c92-3def-9568-509815493141","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":5,"name":"Architecto-5924","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}},{"id":26,"name":"Error","place":"53.1","count":16,"input_sum":137800,"output_sum":227900,"description":"Facere id quis eveniet soluta voluptas. Est aut minima rerum quis quod explicabo et. Repellat in enim voluptas architecto et. Sit saepe id voluptatem doloribus dicta doloribus. Molestiae sit eos rerum dolores vero. Est non aliquam libero aliquam pariatur. Molestiae tenetur sint sed perferendis alias similique. Ea harum quisquam sint provident illum minus. Alias voluptas saepe consequuntur. Similique magni quibusdam ad eos est sit. Eligendi ut libero molestiae dolorem et rerum delectus. Itaque ut laudantium quod omnis voluptatum dolor reiciendis. Dolorum qui voluptas magni ut voluptate qui. Dolorum fuga voluptate hic dolorum odit molestias quo. Rem magni praesentium nobis maxime quis. Vel consequuntur quia quisquam in sunt dolorem. Quos et debitis omnis illum harum est. Corporis saepe ipsam in quaerat sit. Ut natus veniam maxime eius et omnis explicabo. Officia tenetur laudantium rem.","photo":null,"sku":"59e8f05b-cd2d-3623-80c8-3b480d661945","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":9,"name":"Exercitationem-1462","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}}],"links":{"first":"http:\/\/127.0.0.1:8000\/api\/products?page=1","last":"http:\/\/127.0.0.1:8000\/api\/products?page=4","prev":null,"next":"http:\/\/127.0.0.1:8000\/api\/products?page=2"},"meta":{"current_page":1,"from":1,"last_page":4,"links":[{"url":null,"label":"&laquo; \u041d\u0430\u0437\u0430\u0434","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/products?page=1","label":"1","active":true},{"url":"http:\/\/127.0.0.1:8000\/api\/products?page=2","label":"2","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/products?page=3","label":"3","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/products?page=4","label":"4","active":false},{"url":"http:\/\/127.0.0.1:8000\/api\/products?page=2","label":"\u0412\u043f\u0435\u0440\u0451\u0434 &raquo;","active":false}],"path":"http:\/\/127.0.0.1:8000\/api\/products","per_page":30,"to":30,"total":103}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/products
+    metadata:
+      title: 'Добавление товара'
+      description: |-
+        Название должно быть уникально
+
+        Права: `crud storages`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      place:
+        name: place
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      count:
+        name: count
+        description: 'Значение поля value должно быть не меньше 0.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      input_sum:
+        name: input_sum
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      output_sum:
+        name: output_sum
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      photo:
+        name: photo
+        description: 'Поле value должно быть изображением. Размер файла в поле value не может быть больше 10000 Килобайт(а).'
+        required: false
+        example: null
+        type: file
+        custom: []
+      sku:
+        name: sku
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      producer_id:
+        name: producer_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"producer_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f producer id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/products/{id}'
+    metadata:
+      title: 'Получение товара'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      product:
+        name: product
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"product":{"id":17,"name":"Atque","place":"80.1","count":307,"input_sum":133500,"output_sum":220100,"description":"Dolorum recusandae omnis perspiciatis fuga. Veniam aut modi in perspiciatis est dicta id. Voluptates et qui corrupti. Sed error aut aut soluta sit culpa. Beatae est et et mollitia. Voluptas necessitatibus fuga et dolorem aut est qui. Temporibus iste consequatur consequatur delectus totam sint. Deserunt deleniti ex quam. Odit officiis sed ipsum porro. Voluptatibus laborum ut eius dolor repudiandae occaecati autem. Ducimus aut illum minima possimus. Ut ipsa voluptatem doloribus molestiae. Dolor eaque beatae eum pariatur itaque voluptas qui. Consequatur ducimus quidem error est aut. Dolore aliquam voluptas in error animi. Id incidunt consectetur ab maiores. Officiis molestiae magni in dolor aut atque ratione qui. Ad beatae officiis dignissimos id illo libero perferendis ut. Velit iure et culpa. Sint architecto iusto dolorem culpa enim.","photo":null,"sku":"8284b4ff-6054-36b5-9797-8e4d9f84a207","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","producer":{"id":6,"name":"Culpa-6524","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/products/{id}'
+    metadata:
+      title: 'Обновление товара'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      product:
+        name: product
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      place:
+        name: place
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      count:
+        name: count
+        description: 'Значение поля value должно быть не меньше 0.'
+        required: true
+        example: 0
+        type: integer
+        custom: []
+      input_sum:
+        name: input_sum
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      output_sum:
+        name: output_sum
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      sku:
+        name: sku
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      producer_id:
+        name: producer_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"producer_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f producer id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/products/{id}'
+    metadata:
+      title: 'Удаление товара'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      product:
+        name: product
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/products/{product}/photo'
+    metadata:
+      title: 'Обновление фото товара'
+      description: 'Права: `crud storages`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      product:
+        name: product
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      photo:
+        name: photo
+        description: 'Изображение, размер не более 10000 Кб'
+        required: true
+        example: null
+        type: file
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"photo":"http:\/\/127.0.0.1:8000\/storage\/products\/51\/9osdgyqhjolbncoh.jpg"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []

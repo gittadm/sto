@@ -1,0 +1,1052 @@
+name: Автомобили
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/car-marks
+    metadata:
+      title: 'Список марок автомобилей'
+      description: 'Права: `crud car marks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"car_marks":[{"id":3,"name":"Alfa Romeo"},{"id":4,"name":"Aston Martin"},{"id":1,"name":"Audi"},{"id":5,"name":"Bentley"},{"id":6,"name":"BMW"},{"id":2,"name":"Skoda"},{"id":7,"name":"\u041c\u043e\u0441\u043a\u0432\u0438\u0447"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/car-marks/{car_mark}'
+    metadata:
+      title: 'Получение марки автомобиля'
+      description: 'Права: `crud car marks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_mark:
+        name: car_mark
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\CarMark] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/car-marks/{car_mark}'
+    metadata:
+      title: 'Обновление марки автомобиля'
+      description: 'Права: `crud car marks`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_mark:
+        name: car_mark
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\CarMark] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/car-marks/{car_mark}'
+    metadata:
+      title: 'Удаление марки автомобиля'
+      description: |-
+        Права: `crud car marks`
+
+        Удаление только если нет моделей автомобилей с такой маркой или других связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_mark:
+        name: car_mark
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/car-models
+    metadata:
+      title: 'Список моделей автомобиля'
+      description: 'Права: `crud models`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_mark_id:
+        name: car_mark_id
+        description: 'Получение моделей только указанной марки'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"car_models":[{"id":60,"name":"Accusantium 525","car_mark":{"id":6,"name":"BMW"}},{"id":67,"name":"Aliquid 823","car_mark":{"id":6,"name":"BMW"}},{"id":28,"name":"Amet 848","car_mark":{"id":4,"name":"Aston Martin"}},{"id":29,"name":"Asperiores 43","car_mark":{"id":4,"name":"Aston Martin"}},{"id":64,"name":"Autem 262","car_mark":{"id":6,"name":"BMW"}},{"id":12,"name":"Autem 608","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":52,"name":"Consequatur 832","car_mark":{"id":5,"name":"Bentley"}},{"id":6,"name":"Cum 408","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":71,"name":"Dicta 110","car_mark":{"id":2,"name":"Skoda"}},{"id":4,"name":"Dignissimos 359","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":7,"name":"Dolor 631","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":40,"name":"Doloremque 885","car_mark":{"id":1,"name":"Audi"}},{"id":39,"name":"Dolores 948","car_mark":{"id":1,"name":"Audi"}},{"id":72,"name":"Eaque 875","car_mark":{"id":2,"name":"Skoda"}},{"id":63,"name":"Earum 511","car_mark":{"id":6,"name":"BMW"}},{"id":10,"name":"Eos 181","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":61,"name":"Error 398","car_mark":{"id":6,"name":"BMW"}},{"id":75,"name":"Error 650","car_mark":{"id":2,"name":"Skoda"}},{"id":16,"name":"Est 153","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":78,"name":"Est 487","car_mark":{"id":2,"name":"Skoda"}},{"id":42,"name":"Est 993","car_mark":{"id":1,"name":"Audi"}},{"id":19,"name":"Eum 751","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":2,"name":"Excepturi 926","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":76,"name":"Exercitationem 118","car_mark":{"id":2,"name":"Skoda"}},{"id":27,"name":"Exercitationem 25","car_mark":{"id":4,"name":"Aston Martin"}},{"id":59,"name":"Exercitationem 531","car_mark":{"id":6,"name":"BMW"}},{"id":20,"name":"Exercitationem 731","car_mark":{"id":4,"name":"Aston Martin"}},{"id":14,"name":"Explicabo 679","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":57,"name":"Facilis 125","car_mark":{"id":6,"name":"BMW"}},{"id":24,"name":"Fuga 862","car_mark":{"id":4,"name":"Aston Martin"}},{"id":47,"name":"Illum 620","car_mark":{"id":5,"name":"Bentley"}},{"id":58,"name":"Impedit 707","car_mark":{"id":6,"name":"BMW"}},{"id":68,"name":"In 243","car_mark":{"id":6,"name":"BMW"}},{"id":30,"name":"Iste 20","car_mark":{"id":4,"name":"Aston Martin"}},{"id":50,"name":"Iste 629","car_mark":{"id":5,"name":"Bentley"}},{"id":77,"name":"Itaque 470","car_mark":{"id":2,"name":"Skoda"}},{"id":1,"name":"Iure 228","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":73,"name":"Labore 102","car_mark":{"id":2,"name":"Skoda"}},{"id":41,"name":"Labore 711","car_mark":{"id":1,"name":"Audi"}},{"id":56,"name":"Labore 915","car_mark":{"id":6,"name":"BMW"}},{"id":9,"name":"Magnam 538","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":70,"name":"Minima 670","car_mark":{"id":2,"name":"Skoda"}},{"id":44,"name":"Natus 137","car_mark":{"id":1,"name":"Audi"}},{"id":38,"name":"Natus 172","car_mark":{"id":1,"name":"Audi"}},{"id":43,"name":"Nemo 392","car_mark":{"id":1,"name":"Audi"}},{"id":53,"name":"Nemo 683","car_mark":{"id":5,"name":"Bentley"}},{"id":23,"name":"Nesciunt 210","car_mark":{"id":4,"name":"Aston Martin"}},{"id":74,"name":"Nihil 564","car_mark":{"id":2,"name":"Skoda"}},{"id":48,"name":"Nihil 978","car_mark":{"id":5,"name":"Bentley"}},{"id":18,"name":"Non 646","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":49,"name":"Nostrum 831","car_mark":{"id":5,"name":"Bentley"}},{"id":69,"name":"Odio 247","car_mark":{"id":6,"name":"BMW"}},{"id":66,"name":"Pariatur 111","car_mark":{"id":6,"name":"BMW"}},{"id":51,"name":"Perspiciatis 28","car_mark":{"id":5,"name":"Bentley"}},{"id":17,"name":"Quae 842","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":13,"name":"Quasi 209","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":35,"name":"Quasi 462","car_mark":{"id":4,"name":"Aston Martin"}},{"id":11,"name":"Qui 263","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":5,"name":"Qui 271","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":33,"name":"Qui 303","car_mark":{"id":4,"name":"Aston Martin"}},{"id":21,"name":"Qui 393","car_mark":{"id":4,"name":"Aston Martin"}},{"id":32,"name":"Qui 755","car_mark":{"id":4,"name":"Aston Martin"}},{"id":3,"name":"Rerum 260","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":46,"name":"Sed 22","car_mark":{"id":1,"name":"Audi"}},{"id":25,"name":"Sed 951","car_mark":{"id":4,"name":"Aston Martin"}},{"id":36,"name":"Sint 119","car_mark":{"id":4,"name":"Aston Martin"}},{"id":8,"name":"Sit 9","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":31,"name":"Sunt 809","car_mark":{"id":4,"name":"Aston Martin"}},{"id":62,"name":"Sunt 956","car_mark":{"id":6,"name":"BMW"}},{"id":34,"name":"Tempora 630","car_mark":{"id":4,"name":"Aston Martin"}},{"id":15,"name":"Ullam 348","car_mark":{"id":3,"name":"Alfa Romeo"}},{"id":22,"name":"Ut 438","car_mark":{"id":4,"name":"Aston Martin"}},{"id":54,"name":"Ut 859","car_mark":{"id":5,"name":"Bentley"}},{"id":37,"name":"Velit 576","car_mark":{"id":1,"name":"Audi"}},{"id":55,"name":"Veniam 919","car_mark":{"id":6,"name":"BMW"}},{"id":45,"name":"Voluptas 523","car_mark":{"id":1,"name":"Audi"}},{"id":65,"name":"Voluptatem 890","car_mark":{"id":6,"name":"BMW"}},{"id":26,"name":"Voluptates 355","car_mark":{"id":4,"name":"Aston Martin"}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/car-marks
+    metadata:
+      title: 'Добавление марки автомобиля'
+      description: |-
+        Название марки должно быть уникально
+
+        Права: `crud car marks`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"car_mark":{"id":9,"name":"consequatur"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/car-models
+    metadata:
+      title: 'Добавление модели автомобиля'
+      description: 'Права: `crud models`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      car_mark_id:
+        name: car_mark_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"car_mark_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f car mark id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/car-models/{car_model}'
+    metadata:
+      title: 'Получение модели автомобиля'
+      description: 'Права: `crud models`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_model:
+        name: car_model
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"car_model":{"id":17,"name":"Quae 842","car_mark":{"id":3,"name":"Alfa Romeo"}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/car-models/{car_model}'
+    metadata:
+      title: 'Обновление модели автомобиля'
+      description: 'Права: `crud models`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_model:
+        name: car_model
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      car_mark_id:
+        name: car_mark_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"car_mark_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f car mark id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/car-models/{car_model}'
+    metadata:
+      title: 'Удаление модели автомобиля'
+      description: |-
+        Права: `crud models`
+
+        Удаление только если нет автомобиля такой модели
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      car_model:
+        name: car_model
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/cars
+    metadata:
+      title: 'Список автомобилей'
+      description: |-
+        Получение списка автомобилей с текущими клиентами.
+        С помощью дополнительных параметров в url можно указать клиента, модель.
+
+        Права: `crud cars`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      client_id:
+        name: client_id
+        description: 'Получение автомобилей только указанного клиента'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      car_model_id:
+        name: car_model_id
+        description: 'Получение автомобилей только указанной модели'
+        required: false
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"cars":[{"id":1,"number":"P499FM38BG","vin":"EQG91028732928793","year":1984,"body":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0430\u043b","color":"\u0411\u0435\u0440\u043b\u0438\u043d\u0441\u043a\u0430\u044f \u043b\u0430\u0437\u0443\u0440\u044c","notes":"Sit neque voluptatem id qui error rerum.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":null,"client":{"id":10,"name":"\u0420\u0430\u0434\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430","middle_name":"\u0421\u043e\u0444\u0438\u044f\u043e\u0432\u0438\u0447","born_at":"19.08.1999","notes":"Possimus maiores velit voluptas corporis rerum rem animi.","address":"Aut aut eum eum minima quo earum.","passport":"Dolore porro itaque consequuntur magni quisquam.","phones":["(812) 720-88-50"],"gender":"male","emails":["hegorov@gmail.com","irina.efremov@safonova.ru","grisin.nikita@morozova.net"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":22},"car_model":{"id":3,"name":"Rerum 260","car_mark":{"id":3,"name":"Alfa Romeo"}}},{"id":2,"number":"K889UC56UA","vin":null,"year":null,"body":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0430\u043b","color":"\u041b\u0430\u0437\u0443\u0440\u043d\u044b\u0439","notes":"Quia molestiae laborum inventore molestiae perferendis perferendis reiciendis.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},"engine_volume":null,"client":{"id":10,"name":"\u0420\u0430\u0434\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430","middle_name":"\u0421\u043e\u0444\u0438\u044f\u043e\u0432\u0438\u0447","born_at":"19.08.1999","notes":"Possimus maiores velit voluptas corporis rerum rem animi.","address":"Aut aut eum eum minima quo earum.","passport":"Dolore porro itaque consequuntur magni quisquam.","phones":["(812) 720-88-50"],"gender":"male","emails":["hegorov@gmail.com","irina.efremov@safonova.ru","grisin.nikita@morozova.net"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":22},"car_model":{"id":5,"name":"Qui 271","car_mark":{"id":3,"name":"Alfa Romeo"}}},{"id":3,"number":"E406TZ94RUS","vin":"ROT26614364057310","year":null,"body":"\u041a\u0430\u0431\u0440\u0438\u043e\u043b\u0435\u0442","color":"\u042f\u043d\u0442\u0430\u0440\u043d\u044b\u0439","notes":"Voluptatem inventore labore voluptatibus dolore.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},"engine_volume":{"id":15,"value":2.3},"client":{"id":10,"name":"\u0420\u0430\u0434\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430","middle_name":"\u0421\u043e\u0444\u0438\u044f\u043e\u0432\u0438\u0447","born_at":"19.08.1999","notes":"Possimus maiores velit voluptas corporis rerum rem animi.","address":"Aut aut eum eum minima quo earum.","passport":"Dolore porro itaque consequuntur magni quisquam.","phones":["(812) 720-88-50"],"gender":"male","emails":["hegorov@gmail.com","irina.efremov@safonova.ru","grisin.nikita@morozova.net"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":22},"car_model":{"id":37,"name":"Velit 576","car_mark":{"id":1,"name":"Audi"}}},{"id":4,"number":"H150QS79RUS","vin":"NWV19099252372097","year":2005,"body":null,"color":"\u0410\u043a\u0432\u0430\u043c\u0430\u0440\u0438\u043d\u043e\u0432\u044b\u0439","notes":"Natus inventore est cum suscipit in molestias sequi deleniti.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":1,"name":"\u0411\u0435\u043d\u0437\u0438\u043d"},"engine_volume":{"id":7,"value":1.5},"client":{"id":10,"name":"\u0420\u0430\u0434\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430","middle_name":"\u0421\u043e\u0444\u0438\u044f\u043e\u0432\u0438\u0447","born_at":"19.08.1999","notes":"Possimus maiores velit voluptas corporis rerum rem animi.","address":"Aut aut eum eum minima quo earum.","passport":"Dolore porro itaque consequuntur magni quisquam.","phones":["(812) 720-88-50"],"gender":"male","emails":["hegorov@gmail.com","irina.efremov@safonova.ru","grisin.nikita@morozova.net"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":22},"car_model":{"id":62,"name":"Sunt 956","car_mark":{"id":6,"name":"BMW"}}},{"id":5,"number":"J540HR66RUS","vin":"MNB50871011267662","year":2022,"body":"\u0421\u0435\u0434\u0430\u043d","color":"\u0417\u0435\u043b\u0451\u043d\u044b\u0439","notes":"Adipisci et sed nam consequatur eos quam.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":null,"client":{"id":7,"name":"\u041b\u0435\u0432","surname":"\u041a\u043e\u043d\u043e\u043d\u043e\u0432\u0430","middle_name":"\u0410\u0444\u0430\u043d\u0430\u0441\u0438\u0439\u043e\u0432\u0438\u0447","born_at":"31.01.1988","notes":"Dicta quas facere placeat.","address":"Totam ut officiis ducimus consequatur et impedit debitis.","passport":"Sed et iste et et laudantium maiores ipsum.","phones":["+7 (922) 751-1465","(812) 033-96-83","(35222) 54-1522"],"gender":"male","emails":["gulaev.igor@bk.ru","valerian45@ya.ru","vasilij48@sorokin.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":26},"car_model":{"id":51,"name":"Perspiciatis 28","car_mark":{"id":5,"name":"Bentley"}}},{"id":6,"number":"P616ZX34AZ","vin":null,"year":null,"body":"\u041a\u0430\u0431\u0440\u0438\u043e\u043b\u0435\u0442","color":"\u041a\u0440\u0435\u043c\u043e\u0432\u044b\u0439","notes":"Ullam ea deleniti incidunt molestiae.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},"engine_volume":{"id":24,"value":4},"client":{"id":6,"name":"\u0422\u0438\u043c\u0443\u0440","surname":"\u0427\u0435\u0440\u043d\u043e\u0432\u0430","middle_name":"\u041e\u043b\u0435\u0441\u044f\u043e\u0432\u0438\u0447","born_at":"25.03.1982","notes":"Voluptas impedit rem autem est.","address":"Quaerat ut id nisi et reprehenderit quo ut illum.","passport":"Et et velit corporis iste voluptas non tempora.","phones":["(812) 446-63-56"],"gender":"male","emails":["akusev.elena@mail.ru","regina85@ya.ru","valerij.ersov@danilov.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":5,"city_id":41},"car_model":{"id":64,"name":"Autem 262","car_mark":{"id":6,"name":"BMW"}}},{"id":7,"number":"M667LC35RUS","vin":"UOM98569172839546","year":null,"body":"\u041a\u0430\u0431\u0440\u0438\u043e\u043b\u0435\u0442","color":"\u0412\u043e\u0435\u043d\u043d\u043e-\u0432\u043e\u0437\u0434\u0443\u0448\u043d\u044b\u0439 \u0441\u0438\u043d\u0438\u0439","notes":"Voluptatem et expedita ratione illo eos.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":11,"value":1.9},"client":{"id":6,"name":"\u0422\u0438\u043c\u0443\u0440","surname":"\u0427\u0435\u0440\u043d\u043e\u0432\u0430","middle_name":"\u041e\u043b\u0435\u0441\u044f\u043e\u0432\u0438\u0447","born_at":"25.03.1982","notes":"Voluptas impedit rem autem est.","address":"Quaerat ut id nisi et reprehenderit quo ut illum.","passport":"Et et velit corporis iste voluptas non tempora.","phones":["(812) 446-63-56"],"gender":"male","emails":["akusev.elena@mail.ru","regina85@ya.ru","valerij.ersov@danilov.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":5,"city_id":41},"car_model":{"id":1,"name":"Iure 228","car_mark":{"id":3,"name":"Alfa Romeo"}}},{"id":8,"number":"U969UX72UA","vin":"FBU88964873031193","year":2015,"body":"\u041b\u0438\u0444\u0442\u0431\u0435\u043a","color":"\u0410\u043b\u0438\u0437\u0430\u0440\u0438\u043d\u043e\u0432\u044b\u0439 \u043a\u0440\u0430\u0441\u043d\u044b\u0439","notes":"Sed veniam repudiandae unde repellendus.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":20,"value":2.8},"client":{"id":6,"name":"\u0422\u0438\u043c\u0443\u0440","surname":"\u0427\u0435\u0440\u043d\u043e\u0432\u0430","middle_name":"\u041e\u043b\u0435\u0441\u044f\u043e\u0432\u0438\u0447","born_at":"25.03.1982","notes":"Voluptas impedit rem autem est.","address":"Quaerat ut id nisi et reprehenderit quo ut illum.","passport":"Et et velit corporis iste voluptas non tempora.","phones":["(812) 446-63-56"],"gender":"male","emails":["akusev.elena@mail.ru","regina85@ya.ru","valerij.ersov@danilov.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":5,"city_id":41},"car_model":{"id":33,"name":"Qui 303","car_mark":{"id":4,"name":"Aston Martin"}}},{"id":9,"number":"X113JH87BG","vin":"PFK26036645315054","year":null,"body":"\u041a\u0430\u0431\u0440\u0438\u043e\u043b\u0435\u0442","color":"\u0411\u0435\u043b\u043e\u043a\u0443\u0440\u044b\u0439","notes":"Rerum atque voluptatem consequatur culpa voluptatem quas.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":3,"value":1.1},"client":{"id":6,"name":"\u0422\u0438\u043c\u0443\u0440","surname":"\u0427\u0435\u0440\u043d\u043e\u0432\u0430","middle_name":"\u041e\u043b\u0435\u0441\u044f\u043e\u0432\u0438\u0447","born_at":"25.03.1982","notes":"Voluptas impedit rem autem est.","address":"Quaerat ut id nisi et reprehenderit quo ut illum.","passport":"Et et velit corporis iste voluptas non tempora.","phones":["(812) 446-63-56"],"gender":"male","emails":["akusev.elena@mail.ru","regina85@ya.ru","valerij.ersov@danilov.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":5,"city_id":41},"car_model":{"id":56,"name":"Labore 915","car_mark":{"id":6,"name":"BMW"}}},{"id":10,"number":"R493VP64RUS","vin":"WNC74667816350745","year":null,"body":null,"color":"\u0410\u0440\u043c\u0435\u0439\u0441\u043a\u0438\u0439 \u0437\u0435\u043b\u0451\u043d\u044b\u0439","notes":"Qui voluptatem quia quae sint.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":null,"client":{"id":3,"name":"\u041d\u0435\u0441\u0442\u043e\u0440","surname":"\u0412\u043e\u0440\u043e\u043d\u043e\u0432\u0430","middle_name":"\u0418\u043d\u043d\u0430\u043e\u0432\u0438\u0447","born_at":"02.04.1971","notes":"Quam sed blanditiis quis rerum.","address":"Fuga et sunt totam quis dolor blanditiis et.","passport":"Voluptas est sunt odio voluptate vero corporis.","phones":["(495) 261-9467","(495) 546-7515"],"gender":"female","emails":["vaceslav37@siraev.com","boleslav88@inbox.ru","zinoveva.ksenia@hotmail.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":49},"car_model":{"id":22,"name":"Ut 438","car_mark":{"id":4,"name":"Aston Martin"}}},{"id":11,"number":"K428YY87BY","vin":null,"year":2011,"body":"\u0412\u043d\u0435\u0434\u043e\u0440\u043e\u0436\u043d\u0438\u043a","color":null,"notes":"Iste ut modi amet aut sit dolorum.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":11,"value":1.9},"client":{"id":3,"name":"\u041d\u0435\u0441\u0442\u043e\u0440","surname":"\u0412\u043e\u0440\u043e\u043d\u043e\u0432\u0430","middle_name":"\u0418\u043d\u043d\u0430\u043e\u0432\u0438\u0447","born_at":"02.04.1971","notes":"Quam sed blanditiis quis rerum.","address":"Fuga et sunt totam quis dolor blanditiis et.","passport":"Voluptas est sunt odio voluptate vero corporis.","phones":["(495) 261-9467","(495) 546-7515"],"gender":"female","emails":["vaceslav37@siraev.com","boleslav88@inbox.ru","zinoveva.ksenia@hotmail.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":49},"car_model":{"id":61,"name":"Error 398","car_mark":{"id":6,"name":"BMW"}}},{"id":12,"number":"Q955WF44BG","vin":"ABT81498754830312","year":1988,"body":null,"color":"\u0413\u043e\u0440\u044c\u043a\u0430\u044f \u0440\u0430\u0434\u043e\u0441\u0442\u044c","notes":"Aliquid itaque neque voluptatem iure quidem dicta possimus in.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":14,"value":2.2},"client":{"id":1,"name":"\u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d","surname":"\u041d\u0438\u043a\u043e\u043d\u043e\u0432","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"05.06.1997","notes":"Et autem fugiat fugiat aut veniam aspernatur.","address":"Qui id perferendis optio similique atque sunt.","passport":"Optio exercitationem qui qui sint.","phones":["(35222) 15-4209","(35222) 26-1942"],"gender":"male","emails":["ulian00@list.ru","elena.kalasnikov@krasilnikov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":56},"car_model":{"id":14,"name":"Explicabo 679","car_mark":{"id":3,"name":"Alfa Romeo"}}},{"id":13,"number":"W958LO13KZ","vin":"BBP85174196641276","year":2013,"body":"\u041f\u0438\u043a\u0430\u043f","color":"\u041a\u043e\u0440\u0438\u0447\u043d\u044b\u0439","notes":"Ut beatae illum quis neque fugiat sed.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":null,"engine_volume":{"id":20,"value":2.8},"client":{"id":4,"name":"\u0412\u0430\u043b\u0435\u0440\u0438\u044f","surname":"\u0414\u0440\u043e\u0437\u0434\u043e\u0432","middle_name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430\u043e\u0432\u0438\u0447","born_at":"19.02.2003","notes":"Aperiam sed et exercitationem itaque blanditiis iure ipsam sed.","address":"Consectetur omnis tempore et eveniet sint nam.","passport":"Quae ipsa odit quaerat in at laborum.","phones":["(812) 321-08-68","8-800-338-2859","(35222) 47-1976"],"gender":"male","emails":["vasileva.veniamin@inbox.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":3,"city_id":79},"car_model":{"id":45,"name":"Voluptas 523","car_mark":{"id":1,"name":"Audi"}}},{"id":14,"number":"Y554BF67BG","vin":"XAC89828007985491","year":1984,"body":"\u041b\u0438\u0444\u0442\u0431\u0435\u043a","color":"\u0418\u043d\u0434\u0438\u0433\u043e","notes":"Odit reprehenderit rerum reprehenderit maxime.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":25,"value":4.5},"client":{"id":4,"name":"\u0412\u0430\u043b\u0435\u0440\u0438\u044f","surname":"\u0414\u0440\u043e\u0437\u0434\u043e\u0432","middle_name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430\u043e\u0432\u0438\u0447","born_at":"19.02.2003","notes":"Aperiam sed et exercitationem itaque blanditiis iure ipsam sed.","address":"Consectetur omnis tempore et eveniet sint nam.","passport":"Quae ipsa odit quaerat in at laborum.","phones":["(812) 321-08-68","8-800-338-2859","(35222) 47-1976"],"gender":"male","emails":["vasileva.veniamin@inbox.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":3,"city_id":79},"car_model":{"id":42,"name":"Est 993","car_mark":{"id":1,"name":"Audi"}}},{"id":15,"number":"B619DS72AZ","vin":"PGB22134644099178","year":1980,"body":"\u0412\u043d\u0435\u0434\u043e\u0440\u043e\u0436\u043d\u0438\u043a","color":"\u0421\u0438\u043d\u044f\u044f \u042d\u043b\u0438\u0441","notes":"Natus aut et dolores commodi praesentium iste fugit.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":33,"value":8.5},"client":{"id":5,"name":"\u041f\u0451\u0442\u0440","surname":"\u0413\u043e\u0440\u0434\u0435\u0435\u0432","middle_name":"\u041d\u0438\u043a\u0430\u043e\u0432\u0438\u0447","born_at":"27.08.1992","notes":"Fuga aliquam ea rerum delectus est quam.","address":"Occaecati a est magni placeat sequi atque.","passport":"Tempora quas quae ea natus illum perferendis aut.","phones":["+7 (922) 938-7223","(35222) 22-2655","(495) 705-0740"],"gender":"male","emails":[],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":81},"car_model":{"id":54,"name":"Ut 859","car_mark":{"id":5,"name":"Bentley"}}},{"id":16,"number":"L651PY63AZ","vin":"KNO54523661325043","year":2006,"body":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0430\u043b","color":null,"notes":"Unde voluptas quaerat officiis.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},"engine_volume":{"id":26,"value":5},"client":{"id":8,"name":"\u0413\u043b\u0435\u0431","surname":"\u041c\u0435\u043b\u044c\u043d\u0438\u043a\u043e\u0432\u0430","middle_name":"\u0410\u043d\u0444\u0438\u0441\u0430\u043e\u0432\u0438\u0447","born_at":"02.07.1991","notes":"Ea unde molestiae neque velit blanditiis officia.","address":"Quis et est tempore iure quas assumenda.","passport":"Culpa nobis sequi quidem asperiores reiciendis ut.","phones":["(35222) 13-0504","(35222) 28-4532","8-800-904-5531"],"gender":"male","emails":["olesa94@mail.ru","pprohorov@bk.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":87},"car_model":{"id":43,"name":"Nemo 392","car_mark":{"id":1,"name":"Audi"}}},{"id":17,"number":"L801HG39UA","vin":"JFN99685057816501","year":2015,"body":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0430\u043b","color":"\u0427\u0451\u0440\u043d\u044b\u0439","notes":"Dolorem quos sit dolorem cupiditate soluta.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":35,"value":9.5},"client":{"id":8,"name":"\u0413\u043b\u0435\u0431","surname":"\u041c\u0435\u043b\u044c\u043d\u0438\u043a\u043e\u0432\u0430","middle_name":"\u0410\u043d\u0444\u0438\u0441\u0430\u043e\u0432\u0438\u0447","born_at":"02.07.1991","notes":"Ea unde molestiae neque velit blanditiis officia.","address":"Quis et est tempore iure quas assumenda.","passport":"Culpa nobis sequi quidem asperiores reiciendis ut.","phones":["(35222) 13-0504","(35222) 28-4532","8-800-904-5531"],"gender":"male","emails":["olesa94@mail.ru","pprohorov@bk.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":87},"car_model":{"id":78,"name":"Est 487","car_mark":{"id":2,"name":"Skoda"}}},{"id":18,"number":"R334TU41AZ","vin":"ICY72100386217400","year":2022,"body":"\u041a\u0430\u0431\u0440\u0438\u043e\u043b\u0435\u0442","color":"\u0412\u0438\u043d\u043e","notes":"Voluptas eius aliquam repellat molestiae dolores minus corporis.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":9,"value":1.7},"client":{"id":8,"name":"\u0413\u043b\u0435\u0431","surname":"\u041c\u0435\u043b\u044c\u043d\u0438\u043a\u043e\u0432\u0430","middle_name":"\u0410\u043d\u0444\u0438\u0441\u0430\u043e\u0432\u0438\u0447","born_at":"02.07.1991","notes":"Ea unde molestiae neque velit blanditiis officia.","address":"Quis et est tempore iure quas assumenda.","passport":"Culpa nobis sequi quidem asperiores reiciendis ut.","phones":["(35222) 13-0504","(35222) 28-4532","8-800-904-5531"],"gender":"male","emails":["olesa94@mail.ru","pprohorov@bk.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":87},"car_model":{"id":77,"name":"Itaque 470","car_mark":{"id":2,"name":"Skoda"}}},{"id":19,"number":"Z380TV16BG","vin":"SUR94612037216171","year":2000,"body":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0430\u043b","color":"\u041a\u0438\u0440\u043f\u0438\u0447\u043d\u044b\u0439","notes":"Id aut qui consequatur a animi accusamus doloribus.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":null,"engine_volume":{"id":16,"value":2.4},"client":{"id":8,"name":"\u0413\u043b\u0435\u0431","surname":"\u041c\u0435\u043b\u044c\u043d\u0438\u043a\u043e\u0432\u0430","middle_name":"\u0410\u043d\u0444\u0438\u0441\u0430\u043e\u0432\u0438\u0447","born_at":"02.07.1991","notes":"Ea unde molestiae neque velit blanditiis officia.","address":"Quis et est tempore iure quas assumenda.","passport":"Culpa nobis sequi quidem asperiores reiciendis ut.","phones":["(35222) 13-0504","(35222) 28-4532","8-800-904-5531"],"gender":"male","emails":["olesa94@mail.ru","pprohorov@bk.ru"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":2,"city_id":87},"car_model":{"id":53,"name":"Nemo 683","car_mark":{"id":5,"name":"Bentley"}}},{"id":20,"number":"Z321WT77BG","vin":"DXG89670225185535","year":2022,"body":"\u041f\u0438\u043a\u0430\u043f","color":"\u0421\u0438\u0440\u0435\u043d\u0435\u0432\u044b\u0439","notes":null,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},"engine_volume":{"id":2,"value":1},"client":{"id":9,"name":"\u0422\u0430\u043c\u0430\u0440\u0430","surname":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"21.06.2001","notes":"Accusamus minima dolor dolores aliquid.","address":"Minus iste dolorum cupiditate.","passport":"Error sed a quasi qui.","phones":["+7 (922) 361-2223","(495) 897-1178"],"gender":"male","emails":["gdrozdov@narod.ru","aleksandr.maksimov@kononov.ru","ibragina@karpov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":88},"car_model":{"id":13,"name":"Quasi 209","car_mark":{"id":3,"name":"Alfa Romeo"}}},{"id":21,"number":"L904AX40BG","vin":"ACM86060548336244","year":1993,"body":"\u041a\u0430\u0431\u0440\u0438\u043e\u043b\u0435\u0442","color":"\u0411\u0435\u0440\u043b\u0438\u043d\u0441\u043a\u0430\u044f \u043b\u0430\u0437\u0443\u0440\u044c","notes":"Eius quia labore magnam voluptas itaque.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":24,"value":4},"client":{"id":9,"name":"\u0422\u0430\u043c\u0430\u0440\u0430","surname":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"21.06.2001","notes":"Accusamus minima dolor dolores aliquid.","address":"Minus iste dolorum cupiditate.","passport":"Error sed a quasi qui.","phones":["+7 (922) 361-2223","(495) 897-1178"],"gender":"male","emails":["gdrozdov@narod.ru","aleksandr.maksimov@kononov.ru","ibragina@karpov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":88},"car_model":{"id":58,"name":"Impedit 707","car_mark":{"id":6,"name":"BMW"}}},{"id":22,"number":"T254GU44RUS","vin":"LMY12201482975388","year":1995,"body":"\u0412\u043d\u0435\u0434\u043e\u0440\u043e\u0436\u043d\u0438\u043a","color":"\u0412\u043e\u0435\u043d\u043d\u043e-\u0432\u043e\u0437\u0434\u0443\u0448\u043d\u044b\u0439 \u0441\u0438\u043d\u0438\u0439","notes":"Vero assumenda reiciendis minima est consequatur nostrum.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},"engine_volume":{"id":26,"value":5},"client":{"id":9,"name":"\u0422\u0430\u043c\u0430\u0440\u0430","surname":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"21.06.2001","notes":"Accusamus minima dolor dolores aliquid.","address":"Minus iste dolorum cupiditate.","passport":"Error sed a quasi qui.","phones":["+7 (922) 361-2223","(495) 897-1178"],"gender":"male","emails":["gdrozdov@narod.ru","aleksandr.maksimov@kononov.ru","ibragina@karpov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":88},"car_model":{"id":54,"name":"Ut 859","car_mark":{"id":5,"name":"Bentley"}}},{"id":23,"number":"U703MN32RUS","vin":"FBU26806574467308","year":1996,"body":"\u041b\u0438\u0444\u0442\u0431\u0435\u043a","color":"\u0412\u043e\u0434\u0430 \u043f\u043b\u044f\u0436\u0430 \u0411\u043e\u043d\u0434\u0438","notes":"Quia dolor est veritatis architecto omnis.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":8,"value":1.6},"client":{"id":9,"name":"\u0422\u0430\u043c\u0430\u0440\u0430","surname":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"21.06.2001","notes":"Accusamus minima dolor dolores aliquid.","address":"Minus iste dolorum cupiditate.","passport":"Error sed a quasi qui.","phones":["+7 (922) 361-2223","(495) 897-1178"],"gender":"male","emails":["gdrozdov@narod.ru","aleksandr.maksimov@kononov.ru","ibragina@karpov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":88},"car_model":{"id":20,"name":"Exercitationem 731","car_mark":{"id":4,"name":"Aston Martin"}}},{"id":24,"number":"F968OB19RUS","vin":"LPR47485712610630","year":1991,"body":"\u041b\u0438\u0444\u0442\u0431\u0435\u043a","color":null,"notes":null,"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":25,"value":4.5},"client":{"id":9,"name":"\u0422\u0430\u043c\u0430\u0440\u0430","surname":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430","middle_name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"21.06.2001","notes":"Accusamus minima dolor dolores aliquid.","address":"Minus iste dolorum cupiditate.","passport":"Error sed a quasi qui.","phones":["+7 (922) 361-2223","(495) 897-1178"],"gender":"male","emails":["gdrozdov@narod.ru","aleksandr.maksimov@kononov.ru","ibragina@karpov.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":1,"city_id":88},"car_model":{"id":38,"name":"Natus 172","car_mark":{"id":1,"name":"Audi"}}},{"id":25,"number":"H979KR99AZ","vin":"CFP49874911415439","year":2001,"body":"\u041f\u0438\u043a\u0430\u043f","color":"\u0426\u0438\u043d\u043d\u0432\u0430\u043b\u044c\u0434\u0438\u0442","notes":"Ut excepturi cupiditate aperiam et alias.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":{"id":14,"value":2.2},"client":{"id":2,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0422\u0435\u0440\u0435\u043d\u0442\u044c\u0435\u0432\u0430","middle_name":"\u0415\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"25.12.1947","notes":"Ratione occaecati eum earum labore excepturi beatae molestiae nemo.","address":"Molestiae temporibus quidem et velit dolor ut voluptas dolor.","passport":"Sed officia atque occaecati voluptates atque id eos.","phones":["8-800-654-9152"],"gender":"male","emails":["rkomissarova@kabanova.ru","gurev.ulian@gmail.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":100},"car_model":{"id":31,"name":"Sunt 809","car_mark":{"id":4,"name":"Aston Martin"}}},{"id":26,"number":"Q549PU36UA","vin":"PLM73905509972210","year":1988,"body":"\u041a\u0443\u043f\u0435","color":"\u0426\u0432\u0435\u0442 \u043c\u043e\u0440\u0441\u043a\u043e\u0439 \u0432\u043e\u043b\u043d\u044b","notes":"Architecto odio qui inventore et minima similique consequatur qui.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},"engine_volume":{"id":15,"value":2.3},"client":{"id":2,"name":"\u0410\u043b\u0451\u043d\u0430","surname":"\u0422\u0435\u0440\u0435\u043d\u0442\u044c\u0435\u0432\u0430","middle_name":"\u0415\u0432\u0430\u043e\u0432\u0438\u0447","born_at":"25.12.1947","notes":"Ratione occaecati eum earum labore excepturi beatae molestiae nemo.","address":"Molestiae temporibus quidem et velit dolor ut voluptas dolor.","passport":"Sed officia atque occaecati voluptates atque id eos.","phones":["8-800-654-9152"],"gender":"male","emails":["rkomissarova@kabanova.ru","gurev.ulian@gmail.com"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":100},"car_model":{"id":20,"name":"Exercitationem 731","car_mark":{"id":4,"name":"Aston Martin"}}}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/cars
+    metadata:
+      title: 'Добавление автомобиля'
+      description: 'Права: `crud cars`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      vin:
+        name: vin
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      year:
+        name: year
+        description: 'Значение поля value должно быть не меньше 1950. Значение поля value не может быть больше 2023.'
+        required: false
+        example: 1007
+        type: integer
+        custom: []
+      body:
+        name: body
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      color:
+        name: color
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      notes:
+        name: notes
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      fuel_id:
+        name: fuel_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      engine_volume_id:
+        name: engine_volume_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      client_id:
+        name: client_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      car_model_id:
+        name: car_model_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"year":["\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f year \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 1950."],"fuel_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f fuel id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."],"client_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f client id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/cars/{id}'
+    metadata:
+      title: 'Получение автомобиля'
+      description: 'Права: `crud cars`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the car.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"car":{"id":1,"number":"P499FM38BG","vin":"EQG91028732928793","year":1984,"body":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0430\u043b","color":"\u0411\u0435\u0440\u043b\u0438\u043d\u0441\u043a\u0430\u044f \u043b\u0430\u0437\u0443\u0440\u044c","notes":"Sit neque voluptatem id qui error rerum.","created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","fuel":{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"},"engine_volume":null,"client":{"id":10,"name":"\u0420\u0430\u0434\u0430","surname":"\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430","middle_name":"\u0421\u043e\u0444\u0438\u044f\u043e\u0432\u0438\u0447","born_at":"19.08.1999","notes":"Possimus maiores velit voluptas corporis rerum rem animi.","address":"Aut aut eum eum minima quo earum.","passport":"Dolore porro itaque consequuntur magni quisquam.","phones":["(812) 720-88-50"],"gender":"male","emails":["hegorov@gmail.com","irina.efremov@safonova.ru","grisin.nikita@morozova.net"],"created_at":"06.02.2022 08:45","updated_at":"06.02.2022 08:45","department_id":4,"city_id":22},"car_model":{"id":3,"name":"Rerum 260","car_mark":{"id":3,"name":"Alfa Romeo"}}}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/cars/{id}'
+    metadata:
+      title: 'Обновление автомобиля'
+      description: 'Права: `crud cars`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the car.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      vin:
+        name: vin
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      year:
+        name: year
+        description: 'Значение поля value должно быть не меньше 1950. Значение поля value не может быть больше 2023.'
+        required: false
+        example: 1007
+        type: integer
+        custom: []
+      body:
+        name: body
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      color:
+        name: color
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      notes:
+        name: notes
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        custom: []
+      fuel_id:
+        name: fuel_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      engine_volume_id:
+        name: engine_volume_id
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        custom: []
+      client_id:
+        name: client_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+      car_model_id:
+        name: car_model_id
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"year":["\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f year \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 1950."],"fuel_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f fuel id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."],"client_id":["\u0412\u044b\u0431\u0440\u0430\u043d\u043d\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0434\u043b\u044f client id \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/cars/{id}'
+    metadata:
+      title: 'Удаление автомобиля'
+      description: 'Права: `crud cars`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the car.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/engine-volumes
+    metadata:
+      title: 'Список объемов двигателей'
+      description: 'Права: `crud engine volumes`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"engine_volumes":[{"id":1,"value":0.9},{"id":2,"value":1},{"id":3,"value":1.1},{"id":4,"value":1.2},{"id":5,"value":1.3},{"id":6,"value":1.4},{"id":7,"value":1.5},{"id":8,"value":1.6},{"id":9,"value":1.7},{"id":10,"value":1.8},{"id":11,"value":1.9},{"id":12,"value":2},{"id":13,"value":2.1},{"id":14,"value":2.2},{"id":15,"value":2.3},{"id":16,"value":2.4},{"id":17,"value":2.5},{"id":18,"value":2.6},{"id":19,"value":2.7},{"id":20,"value":2.8},{"id":21,"value":2.9},{"id":22,"value":3},{"id":23,"value":3.5},{"id":24,"value":4},{"id":25,"value":4.5},{"id":26,"value":5},{"id":27,"value":5.5},{"id":28,"value":6},{"id":29,"value":6.5},{"id":30,"value":7},{"id":31,"value":7.5},{"id":32,"value":8},{"id":33,"value":8.5},{"id":34,"value":9},{"id":35,"value":9.5}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/engine-volumes
+    metadata:
+      title: 'Добавление объема двигателя'
+      description: |-
+        Объем должен быть уникальным
+
+        Права: `crud engine volumes`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      value:
+        name: value
+        description: 'Уникальное число не более чем с одним знаком после точки, от 0 до 10 включительно'
+        required: false
+        example: consequatur
+        type: numeric
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"value":["\u041f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u0447\u0438\u0441\u043b\u043e\u043c.","\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u0431\u043e\u043b\u044c\u0448\u0435 10."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/engine-volumes/{engine_volume}'
+    metadata:
+      title: 'Получение объема двигателя'
+      description: 'Права: `crud engine volumes`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      engine_volume:
+        name: engine_volume
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"engine_volume":{"id":17,"value":2.5}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/engine-volumes/{engine_volume}'
+    metadata:
+      title: 'Обновление объема двигателя'
+      description: 'Права: `crud engine volumes`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      engine_volume:
+        name: engine_volume
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      value:
+        name: value
+        description: 'Уникальное число не более чем с одним знаком после точки, от 0 до 10 включительно'
+        required: false
+        example: consequatur
+        type: numeric
+        custom: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The given data was invalid.","errors":{"value":["\u041f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u0447\u0438\u0441\u043b\u043e\u043c.","\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u0431\u043e\u043b\u044c\u0448\u0435 10."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/engine-volumes/{engine_volume}'
+    metadata:
+      title: 'Удаление объема двигателя'
+      description: |-
+        Права: `crud engine volumes`
+
+        Удаление только если нет автомобилей с таким объемом или других связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      engine_volume:
+        name: engine_volume
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/fuels
+    metadata:
+      title: 'Список видов топлива'
+      description: 'Права: `crud fuels`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"fuels":[{"id":1,"name":"\u0411\u0435\u043d\u0437\u0438\u043d"},{"id":2,"name":"\u0414\u0438\u0437\u0435\u043b\u044c"},{"id":4,"name":"\u0414\u0440\u0443\u0433\u043e\u0435"},{"id":3,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/fuels
+    metadata:
+      title: 'Добавление вида топлива'
+      description: |-
+        Название должно быть уникально
+
+        Права: `crud fuels`
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"fuel":{"id":6,"name":"consequatur"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/fuels/{id}'
+    metadata:
+      title: 'Получение вида топлива'
+      description: 'Права: `crud fuels`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the fuel.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      fuel:
+        name: fuel
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Fuel] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/fuels/{id}'
+    metadata:
+      title: 'Обновление вида топлива'
+      description: 'Права: `crud fuels`'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the fuel.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      fuel:
+        name: fuel
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Уникальное название'
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Fuel] 17"
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/fuels/{id}'
+    metadata:
+      title: 'Удаление вида топлива'
+      description: |-
+        Права: `crud fuels`
+
+        Удаление только если нет автомобилей с таким топливом или других связанных таблиц
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer 2|Vdl7Ce...'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the fuel.'
+        required: true
+        example: 1562
+        type: integer
+        custom: []
+      fuel:
+        name: fuel
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
