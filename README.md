@@ -1,5 +1,9 @@
 Laravel 8.80
 
+тесты
+
+php artisan test
+
 php artisan migrate --seed
 
 В сидерах создание роли администратора и пользователя с такой ролью (todo) 
